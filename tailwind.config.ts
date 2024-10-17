@@ -1,6 +1,6 @@
-import type { Config } from 'tailwindcss';
+/** @type {import('tailwindcss').Config} */
 
-const config: Config = {
+const config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -11,6 +11,8 @@ const config: Config = {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        'pka-green': '#024533',
+        'pka-gold': '#d19f34',
       },
     },
   },
