@@ -9,6 +9,8 @@ import headshotJohn from '@/app/images/headshot-employee-john.jpg';
 import headshotLisa from '@/app/images/headshot-employee-lisa.jpg';
 import headshotDenise from '@/app/images/headshot-employee-denise.jpg';
 import headshotLindsay from '@/app/images/headshot-employee-lindsay.jpg';
+import classNames from 'classnames';
+import { ExternalLinkIcon } from './main';
 
 const employeeHeadshots = [
   headshotFrankJr,
@@ -20,7 +22,51 @@ const employeeHeadshots = [
   headshotLindsay,
 ];
 
-export default function Home() {
+const Card = ({
+  href,
+  className,
+  children,
+}: {
+  href: string;
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  return (
+    <Link
+      href={href}
+      className={classNames(
+        'overflow-hidden rounded-xl border border-gray-200 p-6 transition duration-300 hover:-translate-y-0.5 hover:border-pka-green hover:shadow-md',
+        className,
+      )}
+    >
+      {children}
+    </Link>
+  );
+};
+
+const Header = ({ heading }: { heading: string }) => {
+  return <h2 className="mb-4 text-xl font-semibold md:text-2xl">{heading}</h2>;
+};
+
+const ServiceLink = ({ href, text }: { href: string; text: string }) => (
+  <div className="mt-4">
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="font-bold text-pka-green"
+    >
+      <div className="text-balance">
+        <span className="underline">{text}</span>
+        <span>
+          <ExternalLinkIcon className="-mt-0.5 ml-1 inline-block flex-shrink-0" />
+        </span>
+      </div>
+    </Link>
+  </div>
+);
+
+export default function HomePage() {
   return (
     <>
       <div className="relative mb-12 h-[50vh]">
@@ -40,30 +86,29 @@ export default function Home() {
             </p>
             <Link
               href="/contact"
-              className="inline-block rounded-lg bg-pka-gold px-5 py-3 font-bold text-pka-green shadow-md transition duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:text-lg"
+              className="group relative inline-block overflow-hidden rounded-lg bg-pka-gold px-5 py-3 font-bold text-pka-green shadow-md transition duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:text-lg"
             >
-              Contact us
+              <span className="relative z-10">Contact us</span>
+              <span
+                className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-[#ffeeba] to-transparent opacity-40 group-hover:animate-sheen"
+                aria-hidden="true"
+              ></span>
             </Link>
           </div>
         </div>
       </div>
 
       <div className="mx-auto mb-12 grid grid-cols-1 gap-8 px-4 lg:container md:mb-16 md:grid-cols-3 md:gap-4 lg:gap-8">
-        <Link
-          href="/our-practice"
-          className="overflow-hidden rounded-xl border border-gray-200 transition duration-300 hover:-translate-y-0.5 hover:border-pka-green hover:shadow-md"
-        >
-          <div className="p-6 pb-0">
-            <h2 className="mb-4 text-xl font-semibold md:text-2xl">
-              Our practice
-            </h2>
+        <Card href="/our-practice" className="pr-0">
+          <div className="pr-6">
+            <Header heading="Our practice" />
             <p>
-              Learn about our amazing team that can help you with comprehensive
-              business accounting, consultation, audits of for-profit and
-              non-profit entities and the full spectrum of tax services.
+              Learn about our amazing team that can help you with any or all of
+              your financial needs, from tax services to comprehensive business
+              accounting.
             </p>
           </div>
-          <div className="relative mt-6 pb-6 pl-6">
+          <div className="relative mt-6">
             <div className="mr-6 flex -space-x-3">
               {employeeHeadshots.map((headshot, index) => (
                 <div
@@ -88,25 +133,33 @@ export default function Home() {
               <div className="w-6 bg-white"></div>
             </div>
           </div>
-        </Link>
-        <Link
-          href="/financial-services"
-          className="rounded-lg bg-gray-100 p-6 transition duration-300 hover:shadow-md"
-        >
-          <h2 className="mb-2 text-xl font-semibold md:text-2xl">
-            Financial services
-          </h2>
-          <p>Discover our range of financial services.</p>
-        </Link>
-        <Link
-          href="/tools"
-          className="rounded-lg bg-gray-100 p-6 transition duration-300 hover:shadow-md"
-        >
-          <h2 className="mb-2 text-xl font-semibold md:text-2xl">
-            Financial tools
-          </h2>
-          <p>Access our client portal and resources.</p>
-        </Link>
+        </Card>
+        <Card href="/financial-services">
+          <Header heading="Financial services" />
+          <p>
+            We do it all: taxes, audits, statement reviews, bookkeeping, and
+            payroll. We can even be your virtual CFO! Learn more about the full
+            range of financial services.
+          </p>
+          <div className="mt-4 font-bold text-pka-green underline">
+            Learn more
+          </div>
+        </Card>
+        <div className="rounded-xl border border-gray-200 p-6">
+          <Header heading="Financial tools" />
+          <p>
+            Already a client? Log in to our client portal or file sharing
+            service.
+          </p>
+          <ServiceLink
+            href="http://www.naremote.com/pka/"
+            text="Remote connection for support"
+          />
+          <ServiceLink
+            href="https://pkacpa.sharefile.com/Authentication/Login"
+            text="File sharing"
+          />
+        </div>
       </div>
 
       <div className="mx-auto mb-12 mt-12 px-4 lg:container md:mb-20 md:mt-16">

@@ -41,14 +41,14 @@ const closeIcon = (
   </svg>
 );
 
-const externalLinkIcon = (
+export const ExternalLinkIcon = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"
     strokeWidth="2"
     stroke="currentColor"
-    className="size-4"
+    className={classNames('size-4', className)}
   >
     <path
       strokeLinecap="round"
@@ -66,8 +66,8 @@ enum Page {
 }
 
 const pageTitles: Record<Page, string> = {
-  [Page.ABOUT_US]: 'About us',
-  [Page.SERVICES]: 'Services',
+  [Page.ABOUT_US]: 'Our practice',
+  [Page.SERVICES]: 'Financial services',
   [Page.TOOLS]: 'Tools',
   [Page.CONTACT]: 'Contact us',
 };
@@ -93,15 +93,15 @@ export default function Main({ children }: { children: React.ReactNode }) {
         )}
       >
         <div className="mx-auto bg-pka-gold px-4 py-2 text-white">
-          <a
+          <Link
             href="http://www.naremote.com/pka/"
             target="_blank"
             rel="noopener noreferrer"
             className="mx-auto flex items-center justify-center space-x-1"
           >
             <span className="text-sm">Access our remote connection here</span>
-            <span className="-mt-1">{externalLinkIcon}</span>
-          </a>
+            <span className="-mt-1">{<ExternalLinkIcon />}</span>
+          </Link>
         </div>
         <div className="mx-auto flex items-center justify-between px-4 py-4 xl:container">
           <Link href="/" className="flex items-center">
@@ -160,7 +160,7 @@ export default function Main({ children }: { children: React.ReactNode }) {
       </header>
       <main className="flex-grow">{children}</main>
       <footer className="bg-pka-green text-white">
-        <div className="mx-auto max-w-xl px-4 py-8 md:py-16">
+        <div className="mx-auto max-w-xl px-4 py-8 md:py-16 md:pb-8">
           <div className="grid grid-cols-1 gap-16 sm:grid-cols-2">
             <div>
               <h3 className="mb-4 text-lg font-bold">Office info</h3>

@@ -14,6 +14,14 @@ const config = {
         'pka-green': '#024533',
         'pka-gold': '#d19f34',
       },
+      animation: {
+        sheen: 'sheen 0.5s ease-in-out',
+      },
+      keyframes: {
+        sheen: {
+          '100%': { transform: 'translateX(100%)' },
+        },
+      },
     },
   },
   plugins: [],
