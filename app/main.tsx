@@ -79,8 +79,6 @@ const pageHrefs: Record<Page, string> = {
   [Page.CONTACT]: '/contact',
 };
 
-const menuBreakpoint = 'lg';
-
 const contactUsButton = (
   <Link
     href={pageHrefs[Page.CONTACT]}
@@ -122,12 +120,7 @@ export default function Main({ children }: { children: React.ReactNode }) {
               className="h-auto w-[200px] min-[480px]:w-[275px]"
             />
           </Link>
-          <nav
-            className={classNames(
-              'hidden items-center space-x-8 [&>a:hover]:text-pka-gold [&>a]:transition-colors [&>a]:duration-200',
-              `${menuBreakpoint}:flex`,
-            )}
-          >
+          <nav className="hidden items-center space-x-8 menu:flex [&>a:hover]:text-pka-gold [&>a]:transition-colors [&>a]:duration-200">
             <Link href={pageHrefs[Page.ABOUT_US]}>
               {pageTitles[Page.ABOUT_US]}
             </Link>
@@ -137,12 +130,7 @@ export default function Main({ children }: { children: React.ReactNode }) {
             <Link href={pageHrefs[Page.TOOLS]}>{pageTitles[Page.TOOLS]}</Link>
             {contactUsButton}
           </nav>
-          <div
-            className={classNames(
-              'flex items-center justify-center',
-              `${menuBreakpoint}:hidden`,
-            )}
-          >
+          <div className="flex items-center justify-center menu:hidden">
             <div className="ml-8 mr-4 hidden sm:block">{contactUsButton}</div>
             <button
               className="group flex h-full items-center px-4"
@@ -164,10 +152,7 @@ export default function Main({ children }: { children: React.ReactNode }) {
               animate={{ height: 'auto' }}
               exit={{ height: 0 }}
               transition={{ duration: 0.3 }}
-              className={classNames(
-                'absolute flex w-full flex-col overflow-hidden rounded-b-2xl bg-white shadow-md [&>a:hover]:text-pka-gold [&>a:not(:last-child)]:border-b [&>a:not(:last-child)]:border-gray-100 [&>a]:p-4 [&>a]:transition-colors [&>a]:duration-200',
-                `${menuBreakpoint}:hidden`,
-              )}
+              className="absolute flex w-full flex-col overflow-hidden rounded-b-2xl bg-white shadow-md menu:hidden [&>a:hover]:text-pka-gold [&>a:not(:last-child)]:border-b [&>a:not(:last-child)]:border-gray-100 [&>a]:p-4 [&>a]:transition-colors [&>a]:duration-200"
             >
               <Link href={pageHrefs[Page.ABOUT_US]}>
                 {pageTitles[Page.ABOUT_US]}

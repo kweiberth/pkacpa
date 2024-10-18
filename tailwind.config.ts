@@ -22,6 +22,9 @@ const config = {
           '100%': { transform: 'translateX(100%)' },
         },
       },
+      screens: {
+        menu: '1024px',
+      },
     },
   },
   plugins: [],
