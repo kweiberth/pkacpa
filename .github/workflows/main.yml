@@ -1,4 +1,4 @@
-name: Main
+name: Static checks and e2e tests
 on:
   push:
     branches: [main]
