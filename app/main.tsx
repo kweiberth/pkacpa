@@ -79,6 +79,17 @@ const pageHrefs: Record<Page, string> = {
   [Page.CONTACT]: '/contact',
 };
 
+const menuBreakpoint = 'lg';
+
+const contactUsButton = (
+  <Link
+    href={pageHrefs[Page.CONTACT]}
+    className="overflow-hidden whitespace-nowrap rounded-lg bg-pka-green px-5 py-3 font-bold text-white shadow-md transition duration-300 hover:text-pka-gold hover:shadow-lg sm:text-lg"
+  >
+    Contact us
+  </Link>
+);
+
 export default function Main({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -86,7 +97,7 @@ export default function Main({ children }: { children: React.ReactNode }) {
     <div className="flex min-h-screen flex-col">
       <header
         className={classNames(
-          'relative z-10 border-b border-gray-100 bg-white text-lg font-bold text-pka-green',
+          'relative z-50 border-b border-gray-100 bg-white text-lg font-bold text-pka-green',
           {
             'shadow-sm': isMenuOpen,
           },
@@ -111,7 +122,12 @@ export default function Main({ children }: { children: React.ReactNode }) {
               className="h-auto w-[200px] min-[480px]:w-[275px]"
             />
           </Link>
-          <nav className="hidden space-x-8 md:flex [&>a:hover]:text-pka-gold [&>a]:transition-colors [&>a]:duration-200">
+          <nav
+            className={classNames(
+              'hidden items-center space-x-8 [&>a:hover]:text-pka-gold [&>a]:transition-colors [&>a]:duration-200',
+              `${menuBreakpoint}:flex`,
+            )}
+          >
             <Link href={pageHrefs[Page.ABOUT_US]}>
               {pageTitles[Page.ABOUT_US]}
             </Link>
@@ -119,21 +135,27 @@ export default function Main({ children }: { children: React.ReactNode }) {
               {pageTitles[Page.SERVICES]}
             </Link>
             <Link href={pageHrefs[Page.TOOLS]}>{pageTitles[Page.TOOLS]}</Link>
-            <Link href={pageHrefs[Page.CONTACT]}>
-              {pageTitles[Page.CONTACT]}
-            </Link>
+            {contactUsButton}
           </nav>
-          <button
-            className="group flex h-full items-center px-4 md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          <div
+            className={classNames(
+              'flex items-center justify-center',
+              `${menuBreakpoint}:hidden`,
+            )}
           >
-            <span className="mr-2 transition-colors duration-200 group-hover:text-pka-gold">
-              {isMenuOpen ? 'Close' : 'Menu'}
-            </span>
-            <div className="transition-colors duration-200 group-hover:text-pka-gold">
-              {isMenuOpen ? closeIcon : hamburgerIcon}
-            </div>
-          </button>
+            <div className="ml-8 mr-4 hidden sm:block">{contactUsButton}</div>
+            <button
+              className="group flex h-full items-center px-4"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <span className="mr-2 transition-colors duration-200 group-hover:text-pka-gold">
+                {isMenuOpen ? 'Close' : 'Menu'}
+              </span>
+              <div className="transition-colors duration-200 group-hover:text-pka-gold">
+                {isMenuOpen ? closeIcon : hamburgerIcon}
+              </div>
+            </button>
+          </div>
         </div>
         <AnimatePresence>
           {isMenuOpen && (
@@ -142,7 +164,10 @@ export default function Main({ children }: { children: React.ReactNode }) {
               animate={{ height: 'auto' }}
               exit={{ height: 0 }}
               transition={{ duration: 0.3 }}
-              className="absolute flex w-full flex-col overflow-hidden bg-white shadow-md md:hidden [&>a:hover]:text-pka-gold [&>a:not(:last-child)]:border-b [&>a:not(:last-child)]:border-gray-100 [&>a]:p-4 [&>a]:transition-colors [&>a]:duration-200"
+              className={classNames(
+                'absolute flex w-full flex-col overflow-hidden rounded-b-2xl bg-white shadow-md [&>a:hover]:text-pka-gold [&>a:not(:last-child)]:border-b [&>a:not(:last-child)]:border-gray-100 [&>a]:p-4 [&>a]:transition-colors [&>a]:duration-200',
+                `${menuBreakpoint}:hidden`,
+              )}
             >
               <Link href={pageHrefs[Page.ABOUT_US]}>
                 {pageTitles[Page.ABOUT_US]}
