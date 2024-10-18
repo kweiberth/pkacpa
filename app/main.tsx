@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import classNames from 'classnames';
 import logo from '@/app/images/logo.png';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 const hamburgerIcon = (
   <svg
@@ -90,6 +91,9 @@ const contactUsButton = (
 
 export default function Main({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isCurrentPage = (page: Page) => pathname === pageHrefs[page];
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -121,14 +125,26 @@ export default function Main({ children }: { children: React.ReactNode }) {
             />
           </Link>
           <nav className="hidden items-center space-x-8 menu:flex [&>a:hover]:text-pka-gold [&>a]:transition-colors [&>a]:duration-200">
-            <Link href={pageHrefs[Page.ABOUT_US]}>
+            <Link
+              href={pageHrefs[Page.ABOUT_US]}
+              className={isCurrentPage(Page.ABOUT_US) ? 'text-pka-gold' : ''}
+            >
               {pageTitles[Page.ABOUT_US]}
             </Link>
-            <Link href={pageHrefs[Page.SERVICES]}>
+            <Link
+              href={pageHrefs[Page.SERVICES]}
+              className={isCurrentPage(Page.SERVICES) ? 'text-pka-gold' : ''}
+            >
               {pageTitles[Page.SERVICES]}
             </Link>
-            <Link href={pageHrefs[Page.TOOLS]}>{pageTitles[Page.TOOLS]}</Link>
-            {contactUsButton}
+            <Link
+              href={pageHrefs[Page.TOOLS]}
+              className={isCurrentPage(Page.TOOLS) ? 'text-pka-gold' : ''}
+            >
+              {pageTitles[Page.TOOLS]}
+            </Link>
+
+            {!isCurrentPage(Page.CONTACT) && contactUsButton}
           </nav>
           <div className="flex items-center justify-center menu:hidden">
             <div className="ml-8 mr-4 hidden sm:block">{contactUsButton}</div>
@@ -154,16 +170,16 @@ export default function Main({ children }: { children: React.ReactNode }) {
               transition={{ duration: 0.3 }}
               className="absolute flex w-full flex-col overflow-hidden rounded-b-2xl bg-white shadow-md menu:hidden [&>a:hover]:text-pka-gold [&>a:not(:last-child)]:border-b [&>a:not(:last-child)]:border-gray-100 [&>a]:p-4 [&>a]:transition-colors [&>a]:duration-200"
             >
-              <Link href={pageHrefs[Page.ABOUT_US]}>
-                {pageTitles[Page.ABOUT_US]}
-              </Link>
-              <Link href={pageHrefs[Page.SERVICES]}>
-                {pageTitles[Page.SERVICES]}
-              </Link>
-              <Link href={pageHrefs[Page.TOOLS]}>{pageTitles[Page.TOOLS]}</Link>
-              <Link href={pageHrefs[Page.CONTACT]}>
-                {pageTitles[Page.CONTACT]}
-              </Link>
+              {Object.values(Page).map((page) => (
+                <Link
+                  key={page}
+                  href={pageHrefs[page]}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={isCurrentPage(page) ? 'text-pka-gold' : ''}
+                >
+                  {pageTitles[page]}
+                </Link>
+              ))}
             </motion.nav>
           )}
         </AnimatePresence>
