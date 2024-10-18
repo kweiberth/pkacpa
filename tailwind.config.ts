@@ -14,14 +14,6 @@ const config = {
         'pka-green': '#024533',
         'pka-gold': '#d19f34',
       },
-      animation: {
-        sheen: 'sheen 0.5s ease-in-out',
-      },
-      keyframes: {
-        sheen: {
-          '100%': { transform: 'translateX(100%)' },
-        },
-      },
       screens: {
         // 1024px is the same as Tailwind's built-in 'lg' breakpoint, but we
         // define it here so we can easily maintain a single reference to the

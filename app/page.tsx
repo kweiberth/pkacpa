@@ -86,13 +86,9 @@ export default function HomePage() {
             </p>
             <Link
               href="/contact"
-              className="group relative inline-block overflow-hidden rounded-lg bg-pka-gold px-5 py-3 font-bold text-pka-green shadow-md transition duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:text-lg"
+              className="inline-block overflow-hidden rounded-lg bg-pka-gold px-5 py-3 font-bold text-pka-green shadow-md transition duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:text-lg"
             >
-              <span className="relative z-10">Contact us</span>
-              <span
-                className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-[#ffeeba] to-transparent opacity-40 group-hover:animate-sheen"
-                aria-hidden="true"
-              ></span>
+              Contact us
             </Link>
           </div>
         </div>
