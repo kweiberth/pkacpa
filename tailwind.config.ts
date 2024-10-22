@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
+import tailwindcssAnimate from 'tailwindcss-animate';
 
 const config = {
+  darkMode: ['class'],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -15,15 +17,16 @@ const config = {
         'pka-gold': '#d19f34',
       },
       screens: {
-        // 1024px is the same as Tailwind's built-in 'lg' breakpoint, but we
-        // define it here so we can easily maintain a single reference to the
-        // breakpoint @ which we switch b/w desktop nav header and mobile
-        // hamburger menu.
         menu: '1024px',
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
       },
     },
   },
-  plugins: [],
+  plugins: [tailwindcssAnimate],
 };
 
 export default config;

@@ -147,7 +147,9 @@ export default function Main({ children }: { children: React.ReactNode }) {
             {!isCurrentPage(Page.CONTACT) && contactUsButton}
           </nav>
           <div className="flex items-center justify-center menu:hidden">
-            <div className="ml-8 mr-4 hidden sm:block">{contactUsButton}</div>
+            {!isCurrentPage(Page.CONTACT) && (
+              <div className="ml-8 mr-4 hidden sm:block">{contactUsButton}</div>
+            )}
             <button
               className="group flex h-full items-center px-4"
               onClick={() => setIsMenuOpen(!isMenuOpen)}

@@ -155,7 +155,10 @@ export default function HomePage() {
             href="https://pkacpa.sharefile.com/Authentication/Login"
             text="File sharing"
           />
-          <ServiceLink href="" text="Safe send portal" />
+          <ServiceLink
+            href="https://login.safesendreturns.com/"
+            text="Safe send portal"
+          />
         </div>
       </div>
 
