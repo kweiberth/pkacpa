@@ -18,3 +18,5 @@ jobs:
       - run: npm run type
       - run: npx playwright install --with-deps
       - run: npx playwright test
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
