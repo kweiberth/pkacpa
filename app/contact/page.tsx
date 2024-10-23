@@ -1,11 +1,56 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { useState } from 'react';
+import { toast } from 'sonner';
 
 export default function ContactPage() {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setLoading(true);
+
+    // Store a reference to the form, else when we go to .reset() it later after
+    // the async operation it can be undefined/null.
+    const form = event.currentTarget;
+
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      subject: formData.get('subject'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        toast.success('Message sent successfully!');
+        form.reset();
+      } else {
+        toast.error('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting the form:', error);
+      toast.error('Unexpected error. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="container mx-auto max-w-6xl px-4 pb-12 pt-8">
       <div className="mx-auto max-w-2xl">
@@ -25,11 +70,12 @@ export default function ContactPage() {
               <p className="mb-4 text-pretty text-gray-600">
                 Fill out the form below and we&apos;ll get back to you soon.
               </p>
-              <form className="[&>div>label]:font-bold">
+              <form className="[&>div>label]:font-bold" onSubmit={handleSubmit}>
                 <div className="mb-4">
                   <Label htmlFor="name">Name</Label>
                   <Input
                     id="name"
+                    name="name"
                     placeholder="Your name"
                     autoComplete="name"
                     className="mt-2"
@@ -41,9 +87,21 @@ export default function ContactPage() {
                   <Label htmlFor="email">Email</Label>
                   <Input
                     id="email"
+                    name="email"
                     type="email"
                     placeholder="your@email.com"
                     autoComplete="email"
+                    className="mt-2"
+                    required
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <Label htmlFor="subject">Subject</Label>
+                  <Input
+                    id="subject"
+                    name="subject"
+                    placeholder="Subject of email"
                     className="mt-2"
                     required
                   />
@@ -53,6 +111,7 @@ export default function ContactPage() {
                   <Label htmlFor="message">Message</Label>
                   <Textarea
                     id="message"
+                    name="message"
                     placeholder="What do you need help with?"
                     className="mt-2 h-32"
                     required
@@ -60,10 +119,12 @@ export default function ContactPage() {
                 </div>
 
                 <Button
+                  type="submit"
                   className="w-full rounded-lg bg-pka-green font-bold"
                   size="xl"
+                  disabled={loading}
                 >
-                  Send message
+                  {loading ? 'Sending...' : 'Send message'}
                 </Button>
               </form>
             </CardContent>

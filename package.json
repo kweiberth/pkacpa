@@ -1,5 +1,5 @@
 {
-  "name": "next-js-starter",
+  "name": "pkacpa",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -25,6 +25,8 @@
     "next": "14.2.13",
     "react": "^18",
     "react-dom": "^18",
+    "resend": "^4.0.0",
+    "sonner": "^1.5.0",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7"
   },
