@@ -36,13 +36,24 @@ const Email = ({
 };
 
 export async function POST(request: Request) {
-  const { name, email, subject, message } = await request.json();
+  const {
+    name,
+    email,
+    subject,
+    message,
+    _info: honeypot,
+  } = await request.json();
+
+  if (honeypot) {
+    return NextResponse.json({ success: true });
+  }
+
   try {
     await resend.emails.send({
       from: 'pkacpa.com <noreply@website.pkacpa.com>',
 
       // TODO: Replace this w/ info@pkacpa.com
-      to: 'kurt.weiberth@gmail.com',
+      to: 'jp@pkacpa.com ',
 
       replyTo: email,
       subject,

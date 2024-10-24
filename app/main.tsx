@@ -154,10 +154,10 @@ export default function Main({ children }: { children: React.ReactNode }) {
               className="group flex h-full items-center px-4"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              <span className="mr-2 transition-colors duration-200 group-hover:text-pka-gold">
+              <span className="mr-2 transition-colors duration-200 hover:[@media(hover:hover)]:group-hover:text-pka-gold">
                 {isMenuOpen ? 'Close' : 'Menu'}
               </span>
-              <div className="transition-colors duration-200 group-hover:text-pka-gold">
+              <div className="transition-colors duration-200 hover:[@media(hover:hover)]:group-hover:text-pka-gold">
                 {isMenuOpen ? closeIcon : hamburgerIcon}
               </div>
             </button>

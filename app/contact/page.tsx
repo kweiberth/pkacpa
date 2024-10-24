@@ -26,6 +26,7 @@ export default function ContactPage() {
       email: formData.get('email'),
       subject: formData.get('subject'),
       message: formData.get('message'),
+      _info: formData.get('_info'),
     };
 
     try {
@@ -64,13 +65,28 @@ export default function ContactPage() {
       </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="flex items-start">
-          <Card className="w-full">
-            <CardContent className="p-6">
+          <Card className="w-full max-md:mb-8 max-sm:border-none">
+            <CardContent className="p-0 sm:p-6">
               <h2 className="mb-2 text-xl font-bold">How can we help?</h2>
               <p className="mb-4 text-pretty text-gray-600">
                 Fill out the form below and we&apos;ll get back to you soon.
               </p>
               <form className="[&>div>label]:font-bold" onSubmit={handleSubmit}>
+                {/* 
+                    Honeypot input. We'll send this to the server via the POST 
+                    request and if it's present we'll return a silent success
+                    and avoid sending an email.
+                */}
+                <div className="hidden">
+                  <input
+                    type="text"
+                    name="_info"
+                    placeholder="Info"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
                 <div className="mb-4">
                   <Label htmlFor="name">Name</Label>
                   <Input

@@ -76,8 +76,8 @@ export default function HomePage() {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 flex flex-col justify-start bg-black bg-opacity-60 p-4 pt-24 text-white md:pt-32">
-          <div className="mx-auto w-full max-w-5xl px-8 sm:px-16 md:px-24 lg:px-32">
+        <div className="mx-sm:pt-18 absolute inset-0 flex flex-col justify-start bg-black bg-opacity-60 px-12 pt-24 text-white max-sm:px-10 md:pt-32">
+          <div className="mx-auto w-full max-w-5xl sm:px-16 md:px-24 lg:px-32">
             <h1 className="mb-4 text-left text-2xl font-bold sm:text-3xl md:text-4xl">
               Not just tax time, anytime.
             </h1>
