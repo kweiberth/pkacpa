@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import shareFileLogo from '@/app/images/sharefile-logo.png';
 import safeSendLogo from '@/app/images/safesend-logo.png';
-import { MonitorUp } from 'lucide-react';
+import { ScreenShare } from 'lucide-react';
 import ContactUsBanner from '@/components/contact-us-banner';
 import Container from '@/components/ui/container';
 import PageHeader from '@/components/page-header';
@@ -33,7 +33,7 @@ export default function ToolsPage() {
             <Header heading="Remote connection" />
             <Description description="Connect direclty with our team for remote support." />
             <div className="flex items-center">
-              <MonitorUp className="mr-1 mt-auto h-6 w-6 text-[#3a0e82]" />
+              <ScreenShare className="mr-1 mt-auto h-6 w-6 text-[#3a0e82]" />
               <span className="font-bold text-[#fd5a1f]">tnac.us/pka</span>
             </div>
           </Content>
