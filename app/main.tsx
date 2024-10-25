@@ -116,7 +116,7 @@ export default function Main({ children }: { children: React.ReactNode }) {
             <span className="-mt-1">{<ExternalLinkIcon />}</span>
           </Link>
         </div>
-        <div className="mx-auto flex items-center justify-between px-4 py-4 xl:container">
+        <div className="mx-auto flex items-center justify-between px-4 py-4 xl:container md:px-8">
           <Link href="/" className="flex items-center">
             <Image
               src={logo}
@@ -151,7 +151,7 @@ export default function Main({ children }: { children: React.ReactNode }) {
               <div className="ml-8 mr-4 hidden sm:block">{contactUsButton}</div>
             )}
             <button
-              className="group flex h-full items-center px-4"
+              className="group flex h-full items-center pl-4"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <span className="mr-2 transition-colors duration-200 hover:[@media(hover:hover)]:group-hover:text-pka-gold">

@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import PageHeader from '@/components/page-header';
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
@@ -54,21 +55,16 @@ export default function ContactPage() {
 
   return (
     <div className="container mx-auto max-w-6xl px-4 pb-12 pt-8">
-      <div className="mx-auto max-w-2xl">
-        <h1 className="mb-4 text-center text-3xl font-bold md:text-4xl">
-          Contact us today!
-        </h1>
-        <p className="mb-8 text-balance text-center text-gray-600">
-          Let&apos;s get started on getting you the financial services you need
-          so that you can focus on what you do best.
-        </p>
-      </div>
+      <PageHeader
+        heading="Contact us today!"
+        subheading="Let's get started on getting you the financial services you need so that you can focus on what you do best."
+      />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="flex items-start">
           <Card className="w-full max-md:mb-8 max-sm:border-none">
             <CardContent className="p-0 sm:p-6">
               <h2 className="mb-2 text-xl font-bold">How can we help?</h2>
-              <p className="mb-4 text-pretty text-gray-600">
+              <p className="mb-4 text-pretty">
                 Fill out the form below and we&apos;ll get back to you soon.
               </p>
               <form className="[&>div>label]:font-bold" onSubmit={handleSubmit}>
@@ -151,7 +147,7 @@ export default function ContactPage() {
           <Card className="mb-6">
             <CardContent className="p-6">
               <h2 className="mb-2 text-xl font-bold">Call us</h2>
-              <p className="mb-4 text-pretty text-gray-600">
+              <p className="mb-4 text-pretty">
                 Call our team Monday through Friday from 8:30am—5:00pm
               </p>
               <Button
@@ -169,7 +165,7 @@ export default function ContactPage() {
           <Card className="mb-6">
             <CardContent className="p-6">
               <h2 className="mb-2 text-xl font-bold">Email us</h2>
-              <p className="mb-4 text-pretty text-gray-600">
+              <p className="mb-4 text-pretty">
                 Send us an email and let us know how we can help
               </p>
               <Button
@@ -187,7 +183,7 @@ export default function ContactPage() {
           <Card className="w-full">
             <CardContent className="p-6">
               <h2 className="mb-2 text-xl font-bold">Visit us</h2>
-              <p className="mb-4 text-pretty text-gray-600">
+              <p className="mb-4 text-pretty">
                 Chat to us in person at our office
               </p>
               <Button

@@ -9,8 +9,8 @@ import headshotJohn from '@/app/images/headshot-employee-john.jpg';
 import headshotLisa from '@/app/images/headshot-employee-lisa.jpg';
 import headshotDenise from '@/app/images/headshot-employee-denise.jpg';
 import headshotLindsay from '@/app/images/headshot-employee-lindsay.jpg';
-import classNames from 'classnames';
 import { ExternalLinkIcon } from './main';
+import Card from '@/components/link-card';
 
 const employeeHeadshots = [
   headshotFrankJr,
@@ -21,28 +21,6 @@ const employeeHeadshots = [
   headshotDenise,
   headshotLindsay,
 ];
-
-export const Card = ({
-  href,
-  className,
-  children,
-}: {
-  href: string;
-  className?: string;
-  children: React.ReactNode;
-}) => {
-  return (
-    <Link
-      href={href}
-      className={classNames(
-        'overflow-hidden rounded-xl border border-gray-200 p-6 transition duration-300 hover:-translate-y-0.5 hover:border-pka-green hover:shadow-md',
-        className,
-      )}
-    >
-      {children}
-    </Link>
-  );
-};
 
 const Header = ({ heading }: { heading: string }) => {
   return <h2 className="mb-4 text-xl font-semibold lg:text-2xl">{heading}</h2>;
