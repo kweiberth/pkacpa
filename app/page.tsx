@@ -22,7 +22,7 @@ const employeeHeadshots = [
   headshotLindsay,
 ];
 
-const Card = ({
+export const Card = ({
   href,
   className,
   children,
@@ -45,7 +45,7 @@ const Card = ({
 };
 
 const Header = ({ heading }: { heading: string }) => {
-  return <h2 className="mb-4 text-xl font-semibold md:text-2xl">{heading}</h2>;
+  return <h2 className="mb-4 text-xl font-semibold lg:text-2xl">{heading}</h2>;
 };
 
 const ServiceLink = ({ href, text }: { href: string; text: string }) => (
@@ -76,7 +76,7 @@ export default function HomePage() {
           fill
           className="object-cover"
         />
-        <div className="mx-sm:pt-18 absolute inset-0 flex flex-col justify-start bg-black bg-opacity-60 px-12 pt-24 text-white max-sm:px-10 md:pt-32">
+        <div className="mx-sm:pt-18 absolute inset-0 flex flex-col justify-start bg-black bg-opacity-50 px-12 pt-24 text-white max-sm:px-10 md:pt-32">
           <div className="mx-auto w-full max-w-5xl sm:px-16 md:px-24 lg:px-32">
             <h1 className="mb-4 text-left text-2xl font-bold sm:text-3xl md:text-4xl">
               Not just tax time, anytime.
@@ -93,7 +93,6 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-
       <div className="mx-auto mb-12 grid grid-cols-1 gap-8 px-4 lg:container md:mb-16 md:grid-cols-3 md:gap-4 lg:gap-8">
         <Card href="/our-practice" className="pr-0">
           <div className="pr-6">
@@ -149,7 +148,7 @@ export default function HomePage() {
           </p>
           <ServiceLink
             href="http://www.naremote.com/pka/"
-            text="Remote connection for support"
+            text="Remote connection"
           />
           <ServiceLink
             href="https://pkacpa.sharefile.com/Authentication/Login"
