@@ -156,7 +156,7 @@ export default function ContactPage() {
                 asChild
               >
                 <a href="tel:+17242281177">
-                  <Phone className="mr-1 h-4 w-4" /> (724) 228-1177
+                  <Phone className="mr-1 !h-5 !w-5" /> (724) 228-1177
                 </a>
               </Button>
             </CardContent>
@@ -174,7 +174,7 @@ export default function ContactPage() {
                 asChild
               >
                 <a href="mailto:info@pkacpa.com">
-                  <Mail className="mr-1 h-4 w-4" /> Shoot us an email
+                  <Mail className="mr-1 !h-5 !w-5" /> info@pkacpa.com
                 </a>
               </Button>
             </CardContent>
@@ -195,7 +195,7 @@ export default function ContactPage() {
                   href="https://maps.app.goo.gl/SQeFKchBnRu2M9md6"
                   className="flex items-start"
                 >
-                  <MapPin className="mr-2 mt-0.5 h-5 w-5 flex-shrink-0" />
+                  <MapPin className="mr-2 mt-0.5 !h-5 !w-5 flex-shrink-0" />
                   <div className="text-left">
                     9 East Beau Street <br /> Washington, PA 15301
                   </div>

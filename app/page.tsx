@@ -2,25 +2,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import skyline from '@/app/images/pittsburgh-skyline.webp';
 import alanMannHeadshot from '@/app/images/alan-mann-headshot-fake.webp';
-import headshotFrankJr from '@/app/images/headshot-employee-frank-jr.jpg';
-import headshotGary from '@/app/images/headshot-employee-gary.jpg';
-import headshotFrankIII from '@/app/images/headshot-employee-frank-iii.jpg';
-import headshotJohn from '@/app/images/headshot-employee-john.jpg';
-import headshotLisa from '@/app/images/headshot-employee-lisa.jpg';
-import headshotDenise from '@/app/images/headshot-employee-denise.jpg';
-import headshotLindsay from '@/app/images/headshot-employee-lindsay.jpg';
 import { ExternalLinkIcon } from './main';
 import Card from '@/components/link-card';
+import { employees } from '@/utils/employees';
 
-const employeeHeadshots = [
-  headshotFrankJr,
-  headshotGary,
-  headshotFrankIII,
-  headshotJohn,
-  headshotLisa,
-  headshotDenise,
-  headshotLindsay,
-];
+const employeeHeadshots = Object.values(employees).map(
+  (employee) => employee.headshot,
+);
 
 const Header = ({ heading }: { heading: string }) => {
   return <h2 className="mb-4 text-xl font-semibold lg:text-2xl">{heading}</h2>;

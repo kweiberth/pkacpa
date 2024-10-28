@@ -7,7 +7,7 @@ export default function PageHeader({
 }) {
   return (
     <>
-      <h1 className="mb-1 text-3xl font-bold">{heading}</h1>
+      <h1 className="mb-2 text-3xl font-bold">{heading}</h1>
       <p className="mb-8 text-pretty">{subheading}</p>
     </>
   );
