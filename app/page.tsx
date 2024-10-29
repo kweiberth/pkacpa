@@ -1,14 +1,14 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import skyline from '@/app/images/pittsburgh-skyline.webp';
 import alanMannHeadshot from '@/app/images/alan-mann-headshot-fake.webp';
 import { ExternalLinkIcon } from './main';
 import Card from '@/components/link-card';
 import { employees } from '@/utils/employees';
 
-const employeeHeadshots = Object.values(employees).map(
-  (employee) => employee.headshot,
-);
+const employeeHeadshots = Object.values(employees)
+  .filter((employee) => employee.headshot)
+  .map((employee) => employee.headshot) as StaticImageData[];
 
 const Header = ({ heading }: { heading: string }) => {
   return <h2 className="mb-4 text-xl font-semibold lg:text-2xl">{heading}</h2>;

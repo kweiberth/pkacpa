@@ -51,10 +51,7 @@ export async function POST(request: Request) {
   try {
     await resend.emails.send({
       from: 'pkacpa.com <noreply@website.pkacpa.com>',
-
-      // TODO: Replace this w/ info@pkacpa.com
-      to: 'jp@pkacpa.com ',
-
+      to: 'info@pkacpa.com ',
       replyTo: email,
       subject,
       react: (

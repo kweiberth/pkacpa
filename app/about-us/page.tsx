@@ -18,7 +18,7 @@ function EmployeeCard({ employee }: { employee: EmployeeData }) {
         <div className="flex h-full flex-col">
           <div className="relative aspect-[3/4] w-full">
             <Image
-              src={employee.headshot}
+              src={employee.headshot ?? ''}
               alt={employee.name}
               fill
               className="object-cover"
@@ -32,7 +32,7 @@ function EmployeeCard({ employee }: { employee: EmployeeData }) {
                   {employee.name}
                 </h2>
                 {employee.title ? (
-                  <p className="text-md font-bold lg:text-lg">
+                  <p className="text-md font-bold text-gray-600 lg:text-lg">
                     {employee.title}
                   </p>
                 ) : null}

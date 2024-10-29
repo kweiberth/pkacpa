@@ -39,6 +39,8 @@ interface Service {
   icon: React.ElementType;
   className?: string;
   cardClassName?: string;
+  iconBackground?: string;
+  iconClassName?: string;
 }
 
 const services: Service[] = [
@@ -78,6 +80,8 @@ const services: Service[] = [
     icon: Briefcase,
     className: 'lg:col-span-2',
     cardClassName: 'border-pka-gold border-2 shadow-md',
+    iconBackground: 'bg-pka-green',
+    iconClassName: 'text-pka-gold',
   },
   {
     title: 'Bookkeeping',
@@ -102,8 +106,18 @@ const ServiceCard = ({ service }: { service: Service }) => {
   return (
     <div className={classNames('relative', service.className)}>
       <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-pka-green shadow-md">
-          <service.icon className="h-6 w-6 text-white" />
+        <div
+          className={classNames(
+            'flex h-12 w-12 items-center justify-center rounded-full',
+            service.iconBackground ?? 'bg-pka-green',
+          )}
+        >
+          <service.icon
+            className={classNames(
+              'h-6 w-6',
+              service.iconClassName ?? 'text-white',
+            )}
+          />
         </div>
       </div>
       <Card
