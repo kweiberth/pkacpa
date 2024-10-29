@@ -45,7 +45,7 @@ const services: Service[] = [
   {
     title: 'Taxes',
     description:
-      'Expert tax planning and preparation for individuals and businesses. We help you navigate complex tax laws and maximize your returns.',
+      'Expert tax planning and preparation for individuals and businesses. We help you navigate complex federal, international and state tax laws to maximize your returns.',
     icon: Calculator,
   },
   {
@@ -115,8 +115,8 @@ const ServiceCard = ({ service }: { service: Service }) => {
         <CardHeader className="py-4">
           <CardTitle className="text-center text-xl">{service.title}</CardTitle>
         </CardHeader>
-        <CardContent className="flex-grow">
-          <CardDescription className="text-sm text-black">
+        <CardContent className="flex-grow pb-8">
+          <CardDescription className="text-md text-black">
             {service.description}
           </CardDescription>
         </CardContent>

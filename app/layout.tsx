@@ -7,6 +7,9 @@ import Main from '@/app/main';
 const font = Miriam_Libre({
   subsets: ['latin'],
   weight: ['400', '700'],
+  display: 'swap',
+  preload: true,
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
