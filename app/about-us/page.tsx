@@ -17,13 +17,24 @@ function EmployeeCard({ employee }: { employee: EmployeeData }) {
       <CardContent className="h-full p-0">
         <div className="flex h-full flex-col">
           <div className="relative aspect-[3/4] w-full">
-            <Image
-              src={employee.headshot ?? ''}
-              alt={employee.name}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 33vw"
-            />
+            {employee.headshot ? (
+              <Image
+                src={employee.headshot}
+                alt={employee.name}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center bg-gray-100">
+                <span className="text-6xl font-bold text-gray-400 lg:text-8xl">
+                  {employee.name
+                    .split(' ')
+                    .map((n) => n[0])
+                    .join('')}
+                </span>
+              </div>
+            )}
           </div>
           <div className="flex h-full flex-col p-4 lg:p-6">
             <div>
