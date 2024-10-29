@@ -5,20 +5,21 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle, XCircle } from 'lucide-react';
 import { useState } from 'react';
-import { toast } from 'sonner';
 import PageHeader from '@/components/page-header';
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
+    setError(null);
+    setSuccess(false);
 
-    // Store a reference to the form, else when we go to .reset() it later after
-    // the async operation it can be undefined/null.
     const form = event.currentTarget;
 
     const formData = new FormData(form);
@@ -40,17 +41,22 @@ export default function ContactPage() {
       });
 
       if (response.ok) {
-        toast.success('Message sent successfully!');
+        setSuccess(true);
         form.reset();
       } else {
-        toast.error('Failed to send message. Please try again.');
+        setError('Failed to send message. Please try again.');
       }
     } catch (error) {
       console.error('Error submitting the form:', error);
-      toast.error('Unexpected error. Please try again.');
+      setError('Unexpected error. Please try again.');
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleChange = () => {
+    setError(null);
+    setSuccess(false);
   };
 
   return (
@@ -67,7 +73,11 @@ export default function ContactPage() {
               <p className="mb-4 text-pretty">
                 Fill out the form below and we&apos;ll get back to you soon.
               </p>
-              <form className="[&>div>label]:font-bold" onSubmit={handleSubmit}>
+              <form
+                className="[&>div>label]:font-bold"
+                onSubmit={handleSubmit}
+                onChange={handleChange}
+              >
                 {/* 
                     Honeypot input. We'll send this to the server via the POST 
                     request and if it's present we'll return a silent success
@@ -113,7 +123,7 @@ export default function ContactPage() {
                   <Input
                     id="subject"
                     name="subject"
-                    placeholder="Subject of email"
+                    placeholder="Subject of message"
                     className="mt-2"
                     required
                   />
@@ -130,14 +140,32 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <Button
-                  type="submit"
-                  className="w-full rounded-lg bg-pka-green font-bold"
-                  size="xl"
-                  disabled={loading}
-                >
-                  {loading ? 'Sending...' : 'Send message'}
-                </Button>
+                {!success ? (
+                  <Button
+                    type="submit"
+                    className="w-full rounded-lg bg-pka-green font-bold"
+                    size="xl"
+                    disabled={loading}
+                  >
+                    {loading ? 'Sending...' : 'Send message'}
+                  </Button>
+                ) : (
+                  <div className="rounded-lg border border-green-700 p-4 text-green-700">
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="h-5 w-5 flex-shrink-0" />
+                      Message sent successfully! We&apos;ll be in touch soon.
+                    </div>
+                  </div>
+                )}
+
+                {error && (
+                  <div className="mt-4 rounded-lg bg-red-100 p-4 text-red-700">
+                    <div className="flex items-center gap-3">
+                      <XCircle className="h-5 w-5 flex-shrink-0" />
+                      {error}
+                    </div>
+                  </div>
+                )}
               </form>
             </CardContent>
           </Card>

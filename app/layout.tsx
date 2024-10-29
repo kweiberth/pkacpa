@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Miriam_Libre } from 'next/font/google';
-import { Toaster } from 'sonner';
 import './globals.css';
 import Main from '@/app/main';
 
@@ -29,11 +28,6 @@ export default function Layout({
   return (
     <html lang="en">
       <body className={`${font.className} antialiased`}>
-        <Toaster
-          position="bottom-right"
-          richColors
-          className={font.className}
-        />
         <Main>{children}</Main>
       </body>
     </html>
