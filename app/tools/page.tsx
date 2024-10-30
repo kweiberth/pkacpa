@@ -7,6 +7,13 @@ import ContactUsBanner from '@/components/contact-us-banner';
 import Container from '@/components/ui/container';
 import PageHeader from '@/components/page-header';
 import Card from '@/components/link-card';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Financial tools — Palermo/Kissinger & Associates',
+  description:
+    'Access our suite of financial tools including remote support, secure file sharing, and tax return portal.',
+};
 
 const Header = ({ heading }: { heading: string }) => {
   return <h2 className="mb-4 text-xl font-semibold lg:text-2xl">{heading}</h2>;

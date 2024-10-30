@@ -18,6 +18,13 @@ import {
   DollarSign,
 } from 'lucide-react';
 import classNames from 'classnames';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Financial services — Palermo/Kissinger & Associates',
+  description:
+    'Learn about our expert financial services including tax planning and prep, audits, virtual CFO, bookkeeping, payroll and more.',
+};
 
 const QuickBooks = ({ className = 'h-6 w-6' }) => (
   <svg
