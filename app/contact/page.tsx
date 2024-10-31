@@ -69,12 +69,12 @@ export default function ContactPage() {
         <div className="flex items-start">
           <Card className="w-full max-md:mb-8 max-sm:border-none">
             <CardContent className="p-0 sm:p-6">
-              <h2 className="mb-2 text-xl font-bold">How can we help?</h2>
+              <h2 className="mb-2 text-xl font-semibold">How can we help?</h2>
               <p className="mb-4 text-pretty">
                 Fill out the form below and we&apos;ll get back to you soon.
               </p>
               <form
-                className="[&>div>label]:font-bold"
+                className="[&>div>label]:font-semibold"
                 onSubmit={handleSubmit}
                 onChange={handleChange}
               >
@@ -143,7 +143,7 @@ export default function ContactPage() {
                 {!success ? (
                   <Button
                     type="submit"
-                    className="w-full rounded-lg bg-pka-green font-bold"
+                    className="w-full rounded-lg bg-pka-green font-semibold"
                     size="xl"
                     disabled={loading}
                   >
@@ -174,7 +174,7 @@ export default function ContactPage() {
         <div className="w-full">
           <Card className="mb-6">
             <CardContent className="p-6">
-              <h2 className="mb-2 text-xl font-bold">Call us</h2>
+              <h2 className="mb-2 text-xl font-semibold">Call us</h2>
               <p className="mb-4 text-pretty">
                 Call our team Monday through Friday from 8:30am—5:00pm
               </p>
@@ -192,7 +192,7 @@ export default function ContactPage() {
 
           <Card className="mb-6">
             <CardContent className="p-6">
-              <h2 className="mb-2 text-xl font-bold">Email us</h2>
+              <h2 className="mb-2 text-xl font-semibold">Email us</h2>
               <p className="mb-4 text-pretty">
                 Send us an email and let us know how we can help
               </p>
@@ -210,7 +210,7 @@ export default function ContactPage() {
 
           <Card className="w-full">
             <CardContent className="p-6">
-              <h2 className="mb-2 text-xl font-bold">Visit us</h2>
+              <h2 className="mb-2 text-xl font-semibold">Visit us</h2>
               <p className="mb-4 text-pretty">
                 Chat to us in person at our office
               </p>

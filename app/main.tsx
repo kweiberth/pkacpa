@@ -83,7 +83,7 @@ const pageHrefs: Record<Page, string> = {
 const contactUsButton = (
   <Link
     href={pageHrefs[Page.CONTACT]}
-    className="overflow-hidden whitespace-nowrap rounded-lg bg-pka-green px-5 py-3 font-bold text-white shadow-md transition duration-300 hover:text-pka-gold hover:shadow-lg sm:text-lg"
+    className="overflow-hidden whitespace-nowrap rounded-lg bg-pka-green px-5 py-3 font-semibold text-white shadow-md transition duration-300 hover:text-pka-gold hover:shadow-lg sm:text-lg"
   >
     Contact us
   </Link>
@@ -99,7 +99,7 @@ export default function Main({ children }: { children: React.ReactNode }) {
     <div className="flex min-h-screen flex-col">
       <header
         className={classNames(
-          'relative z-50 border-b border-gray-100 bg-white text-lg font-bold text-pka-green',
+          'relative z-50 border-b border-gray-100 bg-white text-lg font-semibold text-pka-green',
           {
             'shadow-sm': isMenuOpen,
           },
@@ -191,13 +191,13 @@ export default function Main({ children }: { children: React.ReactNode }) {
         <div className="mx-auto max-w-xl px-4 py-8 md:py-16 md:pb-8">
           <div className="grid grid-cols-1 gap-16 sm:grid-cols-2">
             <div>
-              <h3 className="mb-4 text-lg font-bold">Office info</h3>
+              <h3 className="mb-4 text-lg font-semibold">Office info</h3>
               <p>9 East Beau Street</p>
               <p>Washington, PA 15301</p>
               <p>Mon—Fri 8:30am—5:00pm</p>
             </div>
             <div>
-              <h3 className="mb-4 text-lg font-bold">Contact info</h3>
+              <h3 className="mb-4 text-lg font-semibold">Contact info</h3>
               <p>(724) 228-1177</p>
               <a href="mailto:info@pkacpa.com">info@pkacpa.com</a>
             </div>

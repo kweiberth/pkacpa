@@ -27,7 +27,7 @@ function EmployeeCard({ employee }: { employee: EmployeeData }) {
               />
             ) : (
               <div className="flex h-full w-full items-center justify-center bg-gray-100">
-                <span className="text-6xl font-bold text-gray-400 lg:text-8xl">
+                <span className="text-6xl font-semibold text-gray-400 lg:text-8xl">
                   {employee.name
                     .split(' ')
                     .map((n) => n[0])
@@ -39,11 +39,11 @@ function EmployeeCard({ employee }: { employee: EmployeeData }) {
           <div className="flex h-full flex-col p-4 lg:p-6">
             <div>
               <div className="mb-6">
-                <h2 className="mb-1 text-xl font-bold lg:text-2xl">
+                <h2 className="mb-1 text-xl font-semibold lg:text-2xl">
                   {employee.name}
                 </h2>
                 {employee.title ? (
-                  <p className="text-md font-bold text-gray-600 lg:text-lg">
+                  <p className="text-md font-semibold text-gray-600 lg:text-lg">
                     {employee.title}
                   </p>
                 ) : null}

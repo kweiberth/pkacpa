@@ -1,18 +1,18 @@
 import type { Metadata } from 'next';
-import { Miriam_Libre } from 'next/font/google';
+import { Outfit as Font } from 'next/font/google';
 import './globals.css';
 import Main from '@/app/main';
 
-const font = Miriam_Libre({
+const font = Font({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '600'],
   display: 'swap',
   preload: true,
   adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
-  title: 'Palermo/Kissinger & Associates, P.C.',
+  title: 'Palermo/Kissinger & Associates',
   description:
     'Palermo/Kissinger & Associates, P.C. is a certified public accounting and consulting firm located in Washington, Pennsylvania serving the greater Pittsburgh area. Not just tax time, anytime.',
   icons: {

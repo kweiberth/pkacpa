@@ -20,7 +20,7 @@ const ServiceLink = ({ href, text }: { href: string; text: string }) => (
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="font-bold text-pka-green"
+      className="font-semibold text-pka-green"
     >
       <div className="text-balance">
         <span className="underline">{text}</span>
@@ -44,15 +44,15 @@ export default function HomePage() {
         />
         <div className="mx-sm:pt-18 absolute inset-0 flex flex-col justify-start bg-black bg-opacity-50 px-12 pt-24 text-white max-sm:px-10 md:pt-32">
           <div className="mx-auto w-full max-w-5xl sm:px-16 md:px-24 lg:px-32">
-            <h1 className="mb-4 text-left text-2xl font-bold sm:text-3xl md:text-4xl">
+            <h1 className="mb-4 text-left text-2xl font-semibold sm:text-3xl md:text-4xl">
               Not just tax time, anytime.
             </h1>
-            <p className="text-md mb-8 text-pretty text-left font-bold sm:text-xl">
+            <p className="text-md mb-8 text-pretty text-left font-semibold sm:text-xl">
               {`There's never a bad time to reach out.`}
             </p>
             <Link
               href="/contact"
-              className="inline-block overflow-hidden rounded-lg bg-pka-gold px-5 py-3 font-bold text-pka-green shadow-md transition duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:text-lg"
+              className="inline-block overflow-hidden rounded-lg bg-pka-gold px-5 py-3 font-semibold text-pka-green shadow-md transition duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:text-lg"
             >
               Contact us
             </Link>
@@ -102,7 +102,7 @@ export default function HomePage() {
             payroll, or even your virtual CFO! Learn more about the full range
             of financial services we offer.
           </p>
-          <div className="mt-4 font-bold text-pka-green underline">
+          <div className="mt-4 font-semibold text-pka-green underline">
             Learn more
           </div>
         </Card>
@@ -128,7 +128,7 @@ export default function HomePage() {
       </div>
 
       <div className="mx-auto mb-12 mt-12 px-4 lg:container md:mb-20 md:mt-16">
-        <h2 className="ml-6 text-pretty text-left text-xl font-bold md:ml-0 md:text-center md:text-2xl">
+        <h2 className="ml-6 text-pretty text-left text-xl font-semibold md:ml-0 md:text-center md:text-2xl">
           {`Trusted by individuals and businesses alike`}
         </h2>
         <div className="relative mx-auto mb-12 mt-20 max-w-3xl">
