@@ -41,7 +41,9 @@ export default function ToolsPage() {
             <Description description="Connect direclty with our team for remote support." />
             <div className="flex items-center">
               <ScreenShare className="mr-1 mt-auto h-6 w-6 text-[#3a0e82]" />
-              <span className="font-semibold text-[#fd5a1f]">tnac.us/pka</span>
+              <span className="text-lg font-semibold text-[#fd5a1f]">
+                tnac.us/pka
+              </span>
             </div>
           </Content>
         </Card>
