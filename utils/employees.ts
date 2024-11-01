@@ -38,8 +38,8 @@ export interface EmployeeData {
   headshot?: StaticImageData;
   name: string;
   nickname: string;
-  title?: string;
-  email?: string;
+  title: string;
+  email: string;
   bio?: string;
   skills: Skills[];
 }
@@ -107,6 +107,7 @@ export const employees: Record<Employee, EmployeeData> = {
     headshot: headshotLisa,
     name: 'Lisa Vipperman',
     nickname: 'Lisa',
+    email: 'lv@pkacpa.com',
     title: 'CPA',
     bio: `Lisa holds a B.A. in Accounting from King University, Tennessee (2002) and a Master’s Degree in Accounting and Information Systems from Virginia Tech (2003). She joined the firm in 2010, focusing primarily on audits of nonprofit organizations and governmental entities. Lisa also served as a contracted CFO for a local nonprofit organization for over ten years.`,
     skills: [Skills.AUDITS, Skills.NON_PROFITS, Skills.TAXES],
@@ -116,6 +117,7 @@ export const employees: Record<Employee, EmployeeData> = {
     name: 'Denise Roberts',
     nickname: 'Denise',
     email: 'dr@pkacpa.com',
+    title: 'Staff accountant',
     bio: `Denise has been with the firm since 1989, serving in various roles. She began in payroll services and has since expanded her expertise to include bookkeeping, tax return processing, and office management. Denise specializes in handling day-to-day business tasks such as bill payments, paycheck processing, and bank account reconciliations, providing these services without the overhead costs of a full-time in-house bookkeeper. In her free time, Denise enjoys outdoor activities with her husband Jim, their two children Alex and Rachel, and their dog Rocko.`,
     skills: [Skills.PAYROLL, Skills.BOOKKEEPING],
   },
@@ -124,6 +126,7 @@ export const employees: Record<Employee, EmployeeData> = {
     name: 'Lindsay Fritz',
     nickname: 'Lindsay',
     email: 'lf@pkacpa.com',
+    title: 'Payroll specialist',
     bio: `Lindsay graduated from California University of Pennsylvania in 2006 with a B.S. in Business Administration and joined the firm shortly after. She brings over 12 years of payroll expertise into her role as payroll specialist. Lindsay currently manages payroll for 21 clients and is knowledgeable in payroll tax regulations across most states. Outside of work, she enjoys spending time with her husband, Tim, and their four cats.`,
     skills: [Skills.PAYROLL],
   },
@@ -131,6 +134,7 @@ export const employees: Record<Employee, EmployeeData> = {
     name: 'Matt Kissinger',
     nickname: 'Matt',
     email: 'mk@pkacpa.com',
+    title: 'Staff accountant',
     skills: [
       Skills.TAXES,
       Skills.VIRTUAL_CFO,
@@ -143,24 +147,28 @@ export const employees: Record<Employee, EmployeeData> = {
     name: 'Jaime DeCecco',
     nickname: 'Jaime',
     email: 'jd@pkacpa.com',
+    title: 'Staff accountant',
     skills: [Skills.BOOKKEEPING, Skills.TAXES],
   },
   [Employee.Emily]: {
     name: 'Emily Knier',
     nickname: 'Emily',
     email: 'ek@pkacpa.com',
+    title: 'Staff accountant',
     skills: [Skills.BOOKKEEPING],
   },
   [Employee.Katie]: {
     name: 'Katie Worthy',
     nickname: 'Katie',
     email: 'kw@pkacpa.com',
+    title: 'Staff accountant',
     skills: [Skills.BOOKKEEPING],
   },
   [Employee.Kelsey]: {
     name: 'Kelsey McConnell',
     nickname: 'Kelsey',
     email: 'km@pkacpa.com',
+    title: 'Administrative assistant',
     skills: [Skills.BOOKKEEPING],
   },
 };

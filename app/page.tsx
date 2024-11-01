@@ -1,17 +1,16 @@
 import Link from 'next/link';
 import Image, { StaticImageData } from 'next/image';
 import skyline from '@/app/images/pittsburgh-skyline.webp';
-import alanMannHeadshot from '@/app/images/alan-mann-headshot-fake.webp';
 import { ExternalLinkIcon } from './main';
 import Card from '@/components/link-card';
 import { employees } from '@/utils/employees';
 
-const employeeHeadshots = Object.values(employees)
-  .filter((employee) => employee.headshot)
-  .map((employee) => employee.headshot) as StaticImageData[];
+const employeesWithHeadshots = Object.values(employees).filter(
+  (employee) => employee.headshot,
+);
 
 const Header = ({ heading }: { heading: string }) => {
-  return <h2 className="mb-4 text-xl font-semibold lg:text-2xl">{heading}</h2>;
+  return <h2 className="mb-4 text-2xl font-semibold">{heading}</h2>;
 };
 
 const ServiceLink = ({ href, text }: { href: string; text: string }) => (
@@ -71,17 +70,17 @@ export default function HomePage() {
           </div>
           <div className="relative mt-6">
             <div className="mr-6 flex -space-x-3">
-              {employeeHeadshots.map((headshot, index) => (
+              {employeesWithHeadshots.map((employee, index) => (
                 <div
                   key={index}
-                  className="h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border-2 border-white"
+                  className="h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border-2 border-pka-gold"
                   style={{
-                    zIndex: employeeHeadshots.length - index,
+                    zIndex: employeesWithHeadshots.length - index,
                   }}
                 >
                   <Image
-                    src={headshot}
-                    alt={`Team member ${index + 1}`}
+                    src={employee.headshot as StaticImageData}
+                    alt={`Image of ${employee.name}`}
                     width={48}
                     height={48}
                     className="h-full w-full object-cover object-top"
@@ -124,38 +123,6 @@ export default function HomePage() {
             href="https://login.safesendreturns.com/"
             text="Safe send portal"
           />
-        </div>
-      </div>
-
-      <div className="mx-auto mb-12 mt-12 px-4 lg:container md:mb-20 md:mt-16">
-        <h2 className="ml-6 text-pretty text-left text-xl font-semibold md:ml-0 md:text-center md:text-2xl">
-          {`Trusted by individuals and businesses alike`}
-        </h2>
-        <div className="relative mx-auto mb-12 mt-20 max-w-3xl">
-          <div className="rounded-xl border border-gray-200 p-6 pt-12">
-            <div className="absolute -top-12 left-1/2 -translate-x-1/2">
-              <div className="h-24 w-24 rounded-full shadow-lg">
-                <div className="h-full w-full overflow-hidden rounded-full">
-                  <Image
-                    src={alanMannHeadshot}
-                    alt="Dr. Alan Mann"
-                    width={96}
-                    height={96}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="mt-6">
-              <p className="text-md mt-6 font-light">
-                {`Palermo/Kissinger & Associates has helped my business along every step from acquisition, expansion, strategic additions and succession planning not to mention their business and personal tax expertise.`}
-              </p>
-            </div>
-            <div className="mt-4 text-center">
-              <span className="block font-semibold">Dr. Alan Mann</span>
-              <span className="text-sm">Greentree Animal Clinic</span>
-            </div>
-          </div>
         </div>
       </div>
     </>

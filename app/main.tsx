@@ -112,8 +112,8 @@ export default function Main({ children }: { children: React.ReactNode }) {
             rel="noopener noreferrer"
             className="mx-auto flex items-center justify-center space-x-1"
           >
-            <span className="text-sm">Access our remote connection here</span>
-            <span className="-mt-1">{<ExternalLinkIcon />}</span>
+            <span className="text-base">Access our remote connection here</span>
+            <span className="">{<ExternalLinkIcon />}</span>
           </Link>
         </div>
         <div className="mx-auto flex items-center justify-between px-4 py-4 xl:container md:px-8">

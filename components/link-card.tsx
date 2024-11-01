@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import classNames from 'classnames';
+
 export default function Card({
   href,
   className,

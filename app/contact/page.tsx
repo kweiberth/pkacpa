@@ -176,7 +176,7 @@ export default function ContactPage() {
             <CardContent className="p-6">
               <h2 className="mb-2 text-xl font-semibold">Call us</h2>
               <p className="mb-4 text-pretty">
-                Call our team Monday through Friday from 8:30am—5:00pm
+                Call our team Monday through Friday from 8:30am—5:00pm.
               </p>
               <Button
                 variant="outline"
@@ -194,7 +194,7 @@ export default function ContactPage() {
             <CardContent className="p-6">
               <h2 className="mb-2 text-xl font-semibold">Email us</h2>
               <p className="mb-4 text-pretty">
-                Send us an email and let us know how we can help
+                Send us an email and let us know how we can help.
               </p>
               <Button
                 variant="outline"
@@ -212,7 +212,7 @@ export default function ContactPage() {
             <CardContent className="p-6">
               <h2 className="mb-2 text-xl font-semibold">Visit us</h2>
               <p className="mb-4 text-pretty">
-                Chat to us in person at our office
+                Chat to us in person at our office.
               </p>
               <Button
                 variant="outline"
