@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { track, EventName } from '@/utils/analytics';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -42,9 +43,23 @@ export async function POST(request: Request) {
     subject,
     message,
     _info: honeypot,
+    deviceId,
   } = await request.json();
 
+  track(
+    EventName.CONTACT_FORM_SUBMITTED,
+    {
+      name,
+      email,
+      subject,
+      message,
+      honeypot,
+    },
+    deviceId,
+  );
+
   if (honeypot) {
+    track(EventName.CONTACT_FORM_HONEYPOT_CAUGHT, undefined, deviceId);
     return NextResponse.json({ success: true });
   }
 
@@ -58,9 +73,30 @@ export async function POST(request: Request) {
         <Email name={name} email={email} subject={subject} message={message} />
       ),
     });
+
+    track(
+      EventName.CONTACT_FORM_EMAIL_SENT,
+      {
+        name,
+        email,
+        subject,
+        message,
+      },
+      deviceId,
+    );
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Error sending email:', error);
+
+    track(
+      EventName.CONTACT_FORM_EMAIL_FAILED,
+      {
+        error: error instanceof Error ? error.message : 'Unknown error',
+      },
+      deviceId,
+    );
+
     return NextResponse.json({ success: false }, { status: 500 });
   }
 }

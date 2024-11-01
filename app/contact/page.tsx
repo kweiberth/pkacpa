@@ -29,6 +29,7 @@ export default function ContactPage() {
       subject: formData.get('subject'),
       message: formData.get('message'),
       _info: formData.get('_info'),
+      deviceId: window.amplitude.getDeviceId(),
     };
 
     try {

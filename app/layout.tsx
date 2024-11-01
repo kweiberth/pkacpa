@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Outfit as Font } from 'next/font/google';
 import './globals.css';
 import Main from '@/app/main';
+import AmplitudeScripts from '@/app/amplitude-scripts';
 
 const font = Font({
   subsets: ['latin'],
@@ -29,6 +30,7 @@ export default function Layout({
     <html lang="en">
       <body className={`${font.className} antialiased`}>
         <Main>{children}</Main>
+        <AmplitudeScripts />
       </body>
     </html>
   );
