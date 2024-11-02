@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import logo from '@/app/images/logo.png';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { Page, pageHrefs, pageTitles } from '@/utils/pages';
 
 const hamburgerIcon = (
   <svg
@@ -59,27 +60,6 @@ export const ExternalLinkIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-enum Page {
-  ABOUT_US = 'ABOUT_US',
-  SERVICES = 'SERVICES',
-  TOOLS = 'TOOLS',
-  CONTACT = 'CONTACT',
-}
-
-const pageTitles: Record<Page, string> = {
-  [Page.ABOUT_US]: 'Our practice',
-  [Page.SERVICES]: 'Financial services',
-  [Page.TOOLS]: 'Tools',
-  [Page.CONTACT]: 'Contact us',
-};
-
-const pageHrefs: Record<Page, string> = {
-  [Page.ABOUT_US]: '/about-us',
-  [Page.SERVICES]: '/services',
-  [Page.TOOLS]: '/tools',
-  [Page.CONTACT]: '/contact',
-};
-
 const contactUsButton = (
   <Link
     href={pageHrefs[Page.CONTACT]}
@@ -125,25 +105,18 @@ export default function Main({ children }: { children: React.ReactNode }) {
             />
           </Link>
           <nav className="hidden items-center space-x-8 menu:flex [&>a:hover]:text-pka-gold [&>a]:transition-colors [&>a]:duration-200">
-            <Link
-              href={pageHrefs[Page.ABOUT_US]}
-              className={isCurrentPage(Page.ABOUT_US) ? 'text-pka-gold' : ''}
-            >
-              {pageTitles[Page.ABOUT_US]}
-            </Link>
-            <Link
-              href={pageHrefs[Page.SERVICES]}
-              className={isCurrentPage(Page.SERVICES) ? 'text-pka-gold' : ''}
-            >
-              {pageTitles[Page.SERVICES]}
-            </Link>
-            <Link
-              href={pageHrefs[Page.TOOLS]}
-              className={isCurrentPage(Page.TOOLS) ? 'text-pka-gold' : ''}
-            >
-              {pageTitles[Page.TOOLS]}
-            </Link>
-
+            {Object.values(Page)
+              .filter((page) => page !== Page.CONTACT)
+              .map((page) => (
+                <Link
+                  key={page}
+                  href={pageHrefs[page]}
+                  className={isCurrentPage(page) ? 'text-pka-gold' : ''}
+                  data-testid={'desktop-menu-item'}
+                >
+                  {pageTitles[page]}
+                </Link>
+              ))}
             {!isCurrentPage(Page.CONTACT) && contactUsButton}
           </nav>
           <div className="flex items-center justify-center menu:hidden">
@@ -171,6 +144,7 @@ export default function Main({ children }: { children: React.ReactNode }) {
               exit={{ height: 0 }}
               transition={{ duration: 0.3 }}
               className="absolute flex w-full flex-col overflow-hidden rounded-b-2xl bg-white shadow-md menu:hidden [&>a:hover]:text-pka-gold [&>a:not(:last-child)]:border-b [&>a:not(:last-child)]:border-gray-100 [&>a]:p-4 [&>a]:transition-colors [&>a]:duration-200"
+              data-testid="mobile-menu"
             >
               {Object.values(Page).map((page) => (
                 <Link
@@ -178,6 +152,7 @@ export default function Main({ children }: { children: React.ReactNode }) {
                   href={pageHrefs[page]}
                   onClick={() => setIsMenuOpen(false)}
                   className={isCurrentPage(page) ? 'text-pka-gold' : ''}
+                  data-testid={'mobile-menu-item'}
                 >
                   {pageTitles[page]}
                 </Link>

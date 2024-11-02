@@ -63,6 +63,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
   }
 
+  if (!name || !email || !subject || !message) {
+    track(
+      EventName.CONTACT_FORM_MISSING_FIELDS,
+      { name, email, subject, message },
+      deviceId,
+    );
+    return NextResponse.json({ success: false }, { status: 400 });
+  }
+
   try {
     await resend.emails.send({
       from: 'pkacpa.com <noreply@website.pkacpa.com>',
@@ -76,12 +85,7 @@ export async function POST(request: Request) {
 
     track(
       EventName.CONTACT_FORM_EMAIL_SENT,
-      {
-        name,
-        email,
-        subject,
-        message,
-      },
+      { name, email, subject, message },
       deviceId,
     );
 
