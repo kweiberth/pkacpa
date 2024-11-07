@@ -42,8 +42,9 @@ export async function POST(request: Request) {
     email,
     subject,
     message,
-    _info: honeypot,
     deviceId,
+    // _info: honeypot,
+    ...rest
   } = await request.json();
 
   track(
@@ -53,14 +54,18 @@ export async function POST(request: Request) {
       email,
       subject,
       message,
-      honeypot,
+      ...rest,
     },
     deviceId,
   );
 
-  if (honeypot) {
+  console.log('rest', rest);
+
+  if (rest._info) {
     track(EventName.CONTACT_FORM_HONEYPOT_CAUGHT, undefined, deviceId);
-    return NextResponse.json({ success: true });
+    // Making this a string "true" instead of boolean true so that I can more
+    // confidently assert that this is working in our tests.
+    return NextResponse.json({ success: 'true' });
   }
 
   if (!name || !email || !subject || !message) {
@@ -72,12 +77,20 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: false }, { status: 400 });
   }
 
+  const subjectToSend =
+    process.env.VERCEL_ENV === 'production'
+      ? subject
+      : `[${process.env.VERCEL_ENV}] ${subject}`;
+
   try {
     await resend.emails.send({
       from: 'pkacpa.com <noreply@website.pkacpa.com>',
-      to: 'info@pkacpa.com',
+      to:
+        process.env.VERCEL_ENV === 'production'
+          ? 'info@pkacpa.com'
+          : 'kurt.weiberth@gmail.com',
       replyTo: email,
-      subject,
+      subject: subjectToSend,
       react: (
         <Email name={name} email={email} subject={subject} message={message} />
       ),

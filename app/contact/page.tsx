@@ -23,14 +23,18 @@ export default function ContactPage() {
     const form = event.currentTarget;
 
     const formData = new FormData(form);
+
     const data = {
       name: formData.get('name'),
       email: formData.get('email'),
       subject: formData.get('subject'),
       message: formData.get('message'),
       _info: formData.get('_info'),
-      deviceId: window.amplitude.getDeviceId(),
+      deviceId: window.amplitude?.getDeviceId
+        ? window.amplitude.getDeviceId()
+        : 'missing-device-id',
     };
+    console.log('***', data);
 
     try {
       const response = await fetch('/api/contact', {
@@ -84,9 +88,10 @@ export default function ContactPage() {
                     request and if it's present we'll return a silent success
                     and avoid sending an email.
                 */}
-                <div className="hidden">
+                <div style={{ position: 'absolute', left: '-9999px' }}>
                   <input
                     type="text"
+                    id="_info"
                     name="_info"
                     placeholder="Info"
                     tabIndex={-1}
@@ -172,7 +177,7 @@ export default function ContactPage() {
           </Card>
         </div>
 
-        <div className="w-full">
+        <div data-testid="contact-page-CTAs" className="w-full">
           <Card className="mb-6">
             <CardContent className="p-6">
               <h2 className="mb-2 text-xl font-semibold">Call us</h2>
