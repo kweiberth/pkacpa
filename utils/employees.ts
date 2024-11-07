@@ -1,12 +1,3 @@
-import headshotFrankJr from '@/app/images/headshot-employee-frank-jr.jpg';
-import headshotGary from '@/app/images/headshot-employee-gary.jpg';
-import headshotFrankIII from '@/app/images/headshot-employee-frank-iii.jpg';
-import headshotJohn from '@/app/images/headshot-employee-john.jpg';
-import headshotLisa from '@/app/images/headshot-employee-lisa.jpg';
-import headshotDenise from '@/app/images/headshot-employee-denise.jpg';
-import headshotLindsay from '@/app/images/headshot-employee-lindsay.jpg';
-import { StaticImageData } from 'next/image';
-
 export enum Skills {
   ACCOUNTING = 'Accounting',
   TAXES = 'Taxes',
@@ -35,7 +26,7 @@ export enum Employee {
 }
 
 export interface EmployeeData {
-  headshot?: StaticImageData;
+  headshot?: string;
   name: string;
   nickname: string;
   title: string;
@@ -46,7 +37,7 @@ export interface EmployeeData {
 
 export const employees: Record<Employee, EmployeeData> = {
   [Employee.FrankJr]: {
-    headshot: headshotFrankJr,
+    headshot: '/headshot-employee-frank-jr.jpg',
     name: 'Frank J. Palermo, Jr',
     nickname: 'Frank',
     title: 'CPA, Founder',
@@ -60,7 +51,7 @@ export const employees: Record<Employee, EmployeeData> = {
     ],
   },
   [Employee.Gary]: {
-    headshot: headshotGary,
+    headshot: '/headshot-employee-gary.jpg',
     name: 'Gary A. Kissinger',
     nickname: 'Gary',
     title: 'CPA, Shareholder',
@@ -75,7 +66,7 @@ export const employees: Record<Employee, EmployeeData> = {
     ],
   },
   [Employee.FrankIII]: {
-    headshot: headshotFrankIII,
+    headshot: '/headshot-employee-frank-iii.jpg',
     name: 'Frank J. Palermo III',
     nickname: 'Frank',
     title: 'CPA, Shareholder',
@@ -90,7 +81,7 @@ export const employees: Record<Employee, EmployeeData> = {
     ],
   },
   [Employee.John]: {
-    headshot: headshotJohn,
+    headshot: '/headshot-employee-john.jpg',
     name: 'John Palermo',
     nickname: 'John',
     title: 'CPA, Shareholder',
@@ -104,7 +95,7 @@ export const employees: Record<Employee, EmployeeData> = {
     ],
   },
   [Employee.Lisa]: {
-    headshot: headshotLisa,
+    headshot: '/headshot-employee-lisa.jpg',
     name: 'Lisa Vipperman',
     nickname: 'Lisa',
     email: 'lv@pkacpa.com',
@@ -113,7 +104,7 @@ export const employees: Record<Employee, EmployeeData> = {
     skills: [Skills.AUDITS, Skills.NON_PROFITS, Skills.TAXES],
   },
   [Employee.Denise]: {
-    headshot: headshotDenise,
+    headshot: '/headshot-employee-denise.jpg',
     name: 'Denise Roberts',
     nickname: 'Denise',
     email: 'dr@pkacpa.com',
@@ -122,7 +113,7 @@ export const employees: Record<Employee, EmployeeData> = {
     skills: [Skills.PAYROLL, Skills.BOOKKEEPING],
   },
   [Employee.Lindsay]: {
-    headshot: headshotLindsay,
+    headshot: '/headshot-employee-lindsay.jpg',
     name: 'Lindsay Fritz',
     nickname: 'Lindsay',
     email: 'lf@pkacpa.com',

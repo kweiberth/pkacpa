@@ -173,7 +173,8 @@ export default function Main({ children }: { children: React.ReactNode }) {
             </div>
             <div>
               <h3 className="mb-4 text-lg font-semibold">Contact info</h3>
-              <p>(724) 228-1177</p>
+              <a href="tel:+17242281177">(724) 228-1177</a>
+              <br />
               <a href="mailto:info@pkacpa.com">info@pkacpa.com</a>
             </div>
           </div>

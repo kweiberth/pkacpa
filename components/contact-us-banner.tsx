@@ -4,7 +4,10 @@ import skyline from '@/app/images/pittsburgh-skyline.webp';
 
 const ContactUsBanner = () => {
   return (
-    <div className="relative h-96 overflow-hidden rounded-xl shadow-xl">
+    <div
+      className="relative h-96 overflow-hidden rounded-xl shadow-xl"
+      data-testid="contact-us-banner"
+    >
       <Image
         src={skyline}
         alt="Pittsburgh skyline"

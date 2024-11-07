@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import skyline from '@/app/images/pittsburgh-skyline.webp';
 import { ExternalLinkIcon } from './main';
 import Card from '@/components/link-card';
@@ -58,7 +58,10 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <div className="mx-auto mb-12 grid grid-cols-1 gap-8 px-4 lg:container md:mb-16 md:grid-cols-3 md:gap-4 lg:gap-8">
+      <div
+        data-testid="home-page-CTAs"
+        className="mx-auto mb-12 grid grid-cols-1 gap-8 px-4 lg:container md:mb-16 md:grid-cols-3 md:gap-4 lg:gap-8"
+      >
         <Card href="/our-practice" className="pr-0">
           <div className="pr-6">
             <Header heading="Our practice" />
@@ -79,7 +82,7 @@ export default function HomePage() {
                   }}
                 >
                   <Image
-                    src={employee.headshot as StaticImageData}
+                    src={employee.headshot as string}
                     alt={`Image of ${employee.name}`}
                     width={48}
                     height={48}

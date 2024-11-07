@@ -13,64 +13,66 @@ import Image from 'next/image';
 
 function EmployeeCard({ employee }: { employee: EmployeeData }) {
   return (
-    <Card className="overflow-hidden">
-      <CardContent className="h-full p-0">
-        <div className="flex h-full flex-col">
-          <div className="relative aspect-[3/4] w-full">
-            {employee.headshot ? (
-              <Image
-                src={employee.headshot}
-                alt={employee.name}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
-            ) : (
-              <div className="flex h-full w-full items-center justify-center bg-gray-100">
-                <span className="text-6xl font-semibold text-gray-400 lg:text-8xl">
-                  {employee.name
-                    .split(' ')
-                    .map((n) => n[0])
-                    .join('')}
-                </span>
-              </div>
-            )}
-          </div>
-          <div className="flex h-full flex-col p-4 lg:p-6">
-            <div>
-              <div className="mb-6">
-                <h2 className="mb-1 text-xl font-semibold lg:text-2xl">
-                  {employee.name}
-                </h2>
-                {employee.title ? (
-                  <p className="text-md font-semibold text-gray-600 lg:text-lg">
-                    {employee.title}
-                  </p>
-                ) : null}
-              </div>
-              <div className="mb-6 flex flex-wrap gap-2">
-                {employee.skills.map((skill, index) => (
-                  <span
-                    key={index}
-                    className="rounded-full bg-gray-100 px-3 py-2 text-sm"
-                  >
-                    {skill}
+    <div data-testid="employee-card">
+      <Card className="overflow-hidden">
+        <CardContent className="h-full p-0">
+          <div className="flex h-full flex-col">
+            <div className="relative aspect-[3/4] w-full">
+              {employee.headshot ? (
+                <Image
+                  src={employee.headshot}
+                  alt={employee.name}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              ) : (
+                <div className="flex h-full w-full items-center justify-center bg-gray-100">
+                  <span className="text-6xl font-semibold text-gray-400 lg:text-8xl">
+                    {employee.name
+                      .split(' ')
+                      .map((n) => n[0])
+                      .join('')}
                   </span>
-                ))}
+                </div>
+              )}
+            </div>
+            <div className="flex h-full flex-col p-4 lg:p-6">
+              <div>
+                <div className="mb-6">
+                  <h2 className="mb-1 text-xl font-semibold lg:text-2xl">
+                    {employee.name}
+                  </h2>
+                  {employee.title ? (
+                    <p className="text-md font-semibold text-gray-600 lg:text-lg">
+                      {employee.title}
+                    </p>
+                  ) : null}
+                </div>
+                <div className="mb-6 flex flex-wrap gap-2">
+                  {employee.skills.map((skill, index) => (
+                    <span
+                      key={index}
+                      className="rounded-full bg-gray-100 px-3 py-2 text-sm"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="mt-auto">
+                <Button variant="outline" size="sm" asChild>
+                  <a href={`mailto:${employee.email}`}>
+                    <Mail className="!h-5 !w-5" />
+                    <span className="text-sm">{`Email ${employee.nickname}`}</span>
+                  </a>
+                </Button>
               </div>
             </div>
-            <div className="mt-auto">
-              <Button variant="outline" size="sm" asChild>
-                <a href={`mailto:${employee.email}`}>
-                  <Mail className="!h-5 !w-5" />
-                  <span className="text-sm">{`Email ${employee.nickname}`}</span>
-                </a>
-              </Button>
-            </div>
           </div>
-        </div>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </div>
   );
 }
 
