@@ -19,7 +19,7 @@ const AmplitudeScripts = () => (
   <>
     <Script
       id="amplitude-script"
-      src={`https://cdn.amplitude.com/script/${AMPLITUDE_API_KEY}.js`}
+      src="https://cdn.amplitude.com/libs/analytics-browser-2.11.7-min.js.gz"
       onLoad={() => {
         window.amplitude.init(AMPLITUDE_API_KEY, {
           fetchRemoteConfig: true,
