@@ -1,6 +1,7 @@
 'use client';
 
 import Script from 'next/script';
+import { AMPLITUDE_API_KEY } from '@/utils/analytics';
 
 declare global {
   interface Window {
@@ -18,9 +19,9 @@ const AmplitudeScripts = () => (
   <>
     <Script
       id="amplitude-script"
-      src="https://cdn.amplitude.com/script/832ee5a3cdefc047a9ed89935f9fc3ea.js"
+      src={`https://cdn.amplitude.com/script/${AMPLITUDE_API_KEY}.js`}
       onLoad={() => {
-        window.amplitude.init('832ee5a3cdefc047a9ed89935f9fc3ea', {
+        window.amplitude.init(AMPLITUDE_API_KEY, {
           fetchRemoteConfig: true,
           autocapture: true,
         });
