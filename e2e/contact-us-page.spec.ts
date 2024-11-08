@@ -72,8 +72,12 @@ test.describe('Contact form', () => {
       deviceId: expect.any(String),
     });
 
+    // On local/dev environments we don't actually send the email and instead
+    // we do an early return. This should be good enough of a test for now.
+    expect(response.status()).toBe(202);
     await expect(await response.json()).toMatchObject({
       success: true,
+      message: 'Did not send email',
     });
 
     await expect(page.locator('.text-green-700')).toContainText(
@@ -114,10 +118,6 @@ test.describe('Contact form', () => {
 
     // Our server returns a 200 to trick the bots but it sets the success
     // property in the response to string "true" instead of boolean true.
-    //
-    // TODO: Would be great to assert that we never make the request from the
-    // server to Resend to send the email. But not sure exactly how we'd set
-    // that up and I don't think it's worth it right now..
     expect(response.status()).toBe(200);
     await expect(await response.json()).toMatchObject({
       success: 'true',

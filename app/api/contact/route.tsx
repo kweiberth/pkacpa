@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { track, EventName } from '@/utils/analytics';
 
+const SEND_EMAILS_FROM_LOCAL = false;
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const Email = ({
@@ -72,6 +74,16 @@ export async function POST(request: Request) {
       deviceId,
     );
     return NextResponse.json({ success: false }, { status: 400 });
+  }
+
+  if (
+    !['preview', 'production'].includes(process.env.VERCEL_ENV ?? '') &&
+    !SEND_EMAILS_FROM_LOCAL
+  ) {
+    return NextResponse.json(
+      { success: true, message: 'Did not send email' },
+      { status: 202 },
+    );
   }
 
   const subjectToSend =
