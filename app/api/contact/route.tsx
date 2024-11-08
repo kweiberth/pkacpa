@@ -76,10 +76,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: false }, { status: 400 });
   }
 
-  if (
-    !['preview', 'production'].includes(process.env.VERCEL_ENV ?? '') &&
-    !SEND_EMAILS_FROM_LOCAL
-  ) {
+  if (!process.env.VERCEL_ENV && !SEND_EMAILS_FROM_LOCAL) {
     return NextResponse.json(
       { success: true, message: 'Did not send email' },
       { status: 202 },

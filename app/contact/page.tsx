@@ -16,6 +16,9 @@ export default function ContactPage() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (loading) return;
+
     setLoading(true);
     setError(null);
     setSuccess(false);
@@ -34,7 +37,6 @@ export default function ContactPage() {
         ? window.amplitude.getDeviceId()
         : 'missing-device-id',
     };
-    console.log('***', data);
 
     try {
       const response = await fetch('/api/contact', {
