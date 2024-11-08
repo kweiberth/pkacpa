@@ -43,8 +43,7 @@ export async function POST(request: Request) {
     subject,
     message,
     deviceId,
-    // _info: honeypot,
-    ...rest
+    _info: honeypot,
   } = await request.json();
 
   track(
@@ -54,14 +53,12 @@ export async function POST(request: Request) {
       email,
       subject,
       message,
-      ...rest,
+      honeypot,
     },
     deviceId,
   );
 
-  console.log('rest', rest);
-
-  if (rest._info) {
+  if (honeypot) {
     track(EventName.CONTACT_FORM_HONEYPOT_CAUGHT, undefined, deviceId);
     // Making this a string "true" instead of boolean true so that I can more
     // confidently assert that this is working in our tests.
