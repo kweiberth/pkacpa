@@ -76,7 +76,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: false }, { status: 400 });
   }
 
-  if (process.env.DEPLOY_ENV === 'local' && !SEND_EMAILS_FROM_LOCAL) {
+  if (
+    process.env.NEXT_PUBLIC_DEPLOY_ENV === 'local' &&
+    !SEND_EMAILS_FROM_LOCAL
+  ) {
     return NextResponse.json(
       { success: true, message: 'Did not send email' },
       { status: 202 },
@@ -84,15 +87,15 @@ export async function POST(request: Request) {
   }
 
   const subjectToSend =
-    process.env.DEPLOY_ENV === 'production'
+    process.env.NEXT_PUBLIC_DEPLOY_ENV === 'production'
       ? subject
-      : `[${process.env.DEPLOY_ENV}] ${subject}`;
+      : `[${process.env.NEXT_PUBLIC_DEPLOY_ENV}] ${subject}`;
 
   try {
     await resend.emails.send({
       from: 'pkacpa.com <noreply@website.pkacpa.com>',
       to:
-        process.env.DEPLOY_ENV === 'production'
+        process.env.NEXT_PUBLIC_DEPLOY_ENV === 'production'
           ? 'info@pkacpa.com'
           : 'kurt.weiberth@gmail.com',
       replyTo: email,

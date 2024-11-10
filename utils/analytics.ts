@@ -1,9 +1,9 @@
 import { init, track as _track } from '@amplitude/analytics-node';
 
 export const AMPLITUDE_API_KEY =
-  process.env.DEPLOY_ENV === 'production'
+  process.env.NEXT_PUBLIC_DEPLOY_ENV === 'production'
     ? '19b29ce9c0316d7b92295295e4f3119f'
-    : process.env.DEPLOY_ENV === 'staging'
+    : process.env.NEXT_PUBLIC_DEPLOY_ENV === 'staging'
       ? '47d922bb14fec8d6be937c3c36d71bc6'
       : '832ee5a3cdefc047a9ed89935f9fc3ea';
 
