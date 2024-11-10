@@ -66,7 +66,7 @@ export default function HomePage() {
           <div className="pr-6">
             <Header heading="Our practice" />
             <p>
-              Learn about our amazing team that can help you with all of your
+              Learn about our dedicated team that can help you with all of your
               financial needs, from tax services to comprehensive business
               accounting.
             </p>
@@ -101,8 +101,8 @@ export default function HomePage() {
           <Header heading="Financial services" />
           <p>
             We do it all: taxes, audits, statement reviews, bookkeeping,
-            payroll, or even your virtual CFO! Learn more about the full range
-            of financial services we offer.
+            payroll, or have our team become your fractional CFO. Learn more
+            about the full range of financial services we offer.
           </p>
           <div className="mt-4 font-semibold text-pka-green underline">
             Learn more

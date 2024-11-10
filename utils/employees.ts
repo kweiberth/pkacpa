@@ -76,7 +76,7 @@ export const employees: Record<Employee, EmployeeData> = {
       Skills.AUDITS,
       Skills.TAXES,
       Skills.ACCOUNTING,
-      Skills.CONSULTING,
+      Skills.VIRTUAL_CFO,
       Skills.NON_PROFITS,
     ],
   },
