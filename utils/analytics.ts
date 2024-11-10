@@ -7,6 +7,8 @@ export const AMPLITUDE_API_KEY =
       ? '47d922bb14fec8d6be937c3c36d71bc6'
       : '832ee5a3cdefc047a9ed89935f9fc3ea';
 
+console.log('VERCEL_ENV:', process.env.VERCEL_ENV);
+
 export enum EventName {
   CONTACT_FORM_SUBMITTED = 'CONTACT_FORM_SUBMITTED',
   CONTACT_FORM_HONEYPOT_CAUGHT = 'CONTACT_FORM_HONEYPOT_CAUGHT',
