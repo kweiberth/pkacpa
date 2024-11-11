@@ -13,8 +13,8 @@ import Image from 'next/image';
 
 function EmployeeCard({ employee }: { employee: EmployeeData }) {
   return (
-    <div data-testid="employee-card">
-      <Card className="overflow-hidden">
+    <div className="h-full" data-testid="employee-card">
+      <Card className="h-full overflow-hidden">
         <CardContent className="h-full p-0">
           <div className="flex h-full flex-col">
             <div className="relative aspect-[3/4] w-full">
