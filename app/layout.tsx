@@ -15,6 +15,9 @@ const description =
   'Palermo/Kissinger & Associates, P.C. is a certified public accounting and consulting firm located in Washington, Pennsylvania serving the greater Pittsburgh area. Not just tax time, anytime.';
 
 export const metadata: Metadata = {
+  // TODO: Update this to pkacpa.com once we switch the domain DNS over to our
+  // new site.
+  metadataBase: new URL('https://pkacpa.vercel.app'),
   title: 'Palermo/Kissinger & Associates',
   description,
   icons: {
