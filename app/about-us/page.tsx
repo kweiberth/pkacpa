@@ -39,7 +39,7 @@ function EmployeeCard({ employee }: { employee: EmployeeData }) {
             </div>
             <div className="flex h-full flex-col p-4 lg:p-6">
               <div>
-                <div className="mb-6">
+                <div className="mb-4">
                   <h2 className="mb-1 text-xl font-semibold lg:text-2xl">
                     {employee.name}
                   </h2>
