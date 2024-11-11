@@ -11,13 +11,28 @@ const font = Font({
   preload: true,
   adjustFontFallback: true,
 });
+const description =
+  'Palermo/Kissinger & Associates, P.C. is a certified public accounting and consulting firm located in Washington, Pennsylvania serving the greater Pittsburgh area. Not just tax time, anytime.';
 
 export const metadata: Metadata = {
   title: 'Palermo/Kissinger & Associates',
-  description:
-    'Palermo/Kissinger & Associates, P.C. is a certified public accounting and consulting firm located in Washington, Pennsylvania serving the greater Pittsburgh area. Not just tax time, anytime.',
+  description,
   icons: {
     icon: '/favicon.ico',
+  },
+  openGraph: {
+    title: 'Palermo/Kissinger & Associates',
+    description,
+    images: [
+      {
+        url: '/logo.png',
+        width: 1023,
+        height: 201,
+        alt: 'Palermo/Kissinger & Associates Logo',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
 };
 
