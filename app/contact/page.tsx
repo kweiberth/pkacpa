@@ -220,7 +220,7 @@ export default function ContactPage() {
             <CardContent className="p-6">
               <h2 className="mb-2 text-xl font-semibold">Visit us</h2>
               <p className="mb-4 text-pretty">
-                Chat to us in person at our office.
+                Chat with us in person at our office.
               </p>
               <Button
                 variant="outline"
