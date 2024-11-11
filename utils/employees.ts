@@ -122,6 +122,7 @@ export const employees: Record<Employee, EmployeeData> = {
     skills: [Skills.PAYROLL],
   },
   [Employee.Matt]: {
+    headshot: '/headshot-employee-matt.png',
     name: 'Matt Kissinger',
     nickname: 'Matt',
     email: 'mk@pkacpa.com',
