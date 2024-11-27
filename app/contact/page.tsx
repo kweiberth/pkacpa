@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Phone, MapPin, CheckCircle, XCircle } from 'lucide-react';
+import { Phone, MapPin, CheckCircle, XCircle } from 'lucide-react';
 import { useState } from 'react';
 import PageHeader from '@/components/page-header';
 
@@ -193,24 +193,6 @@ export default function ContactPage() {
               >
                 <a href="tel:+17242281177">
                   <Phone className="mr-1 !h-5 !w-5" /> (724) 228-1177
-                </a>
-              </Button>
-            </CardContent>
-          </Card>
-
-          <Card className="mb-6">
-            <CardContent className="p-6">
-              <h2 className="mb-2 text-xl font-semibold">Email us</h2>
-              <p className="mb-4 text-pretty">
-                Send us an email and let us know how we can help.
-              </p>
-              <Button
-                variant="outline"
-                className="w-full justify-start"
-                asChild
-              >
-                <a href="mailto:info@pkacpa.com">
-                  <Mail className="mr-1 !h-5 !w-5" /> info@pkacpa.com
                 </a>
               </Button>
             </CardContent>

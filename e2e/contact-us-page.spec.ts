@@ -5,7 +5,6 @@ test.beforeEach(async ({ page }) => {
 });
 
 const links = [
-  { name: 'info@pkacpa.com', href: 'mailto:info@pkacpa.com' },
   {
     name: '(724) 228-1177',
     href: 'tel:+17242281177',
