@@ -96,12 +96,12 @@ export default function Main({ children }: { children: React.ReactNode }) {
             <span className="">{<ExternalLinkIcon />}</span>
           </Link>
         </div>
-        <div className="mx-auto flex items-center justify-between px-4 py-4 xl:container md:px-8">
+        <div className="mx-auto flex items-center justify-between p-4 xl:container md:px-8">
           <Link href="/" className="flex items-center">
             <Image
               src={logo}
               alt="Palermo/Kissinger & Associates logo"
-              className="h-auto w-[200px] min-[480px]:w-[275px]"
+              className="h-auto max-h-[48px] w-auto"
             />
           </Link>
           <nav className="hidden items-center space-x-8 menu:flex [&>a:hover]:text-pka-gold [&>a]:transition-colors [&>a]:duration-200">
@@ -124,7 +124,7 @@ export default function Main({ children }: { children: React.ReactNode }) {
               <div className="ml-8 mr-4 hidden sm:block">{contactUsButton}</div>
             )}
             <button
-              className="group flex h-full items-center pl-4"
+              className="group flex h-full items-center pl-6"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <span className="mr-2 text-pka-green transition-colors duration-200 [@media(hover:hover)]:group-hover:text-pka-gold">
