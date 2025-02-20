@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import skyline from '@/app/images/pittsburgh-skyline.webp';
 import { ExternalLinkIcon } from './main';
 import Card from '@/components/link-card';
@@ -82,7 +82,7 @@ export default function HomePage() {
                   }}
                 >
                   <Image
-                    src={employee.headshot as string}
+                    src={employee.headshot as StaticImageData}
                     alt={`Image of ${employee.name}`}
                     width={48}
                     height={48}
