@@ -1,3 +1,7 @@
+import { StaticImageData } from 'next/image';
+import headshots from '@/app/images/headshots';
+import { Employee } from './constants';
+
 export enum Skills {
   ACCOUNTING = 'Accounting',
   TAXES = 'Taxes',
@@ -10,23 +14,8 @@ export enum Skills {
   BOOKKEEPING = 'Bookkeeping',
 }
 
-export enum Employee {
-  FrankJr = 'FrankJr',
-  Gary = 'Gary',
-  FrankIII = 'FrankIII',
-  John = 'John',
-  Lisa = 'Lisa',
-  Denise = 'Denise',
-  Lindsay = 'Lindsay',
-  Matt = 'Matt',
-  Jaime = 'Jaime',
-  Emily = 'Emily',
-  Katie = 'Katie',
-  Kelsey = 'Kelsey',
-}
-
 export interface EmployeeData {
-  headshot?: string;
+  headshot?: StaticImageData;
   name: string;
   nickname: string;
   title: string;
@@ -37,7 +26,7 @@ export interface EmployeeData {
 
 export const employees: Record<Employee, EmployeeData> = {
   [Employee.FrankJr]: {
-    headshot: '/headshot-employee-frank-jr.jpg',
+    headshot: headshots[Employee.FrankJr],
     name: 'Frank J. Palermo, Jr',
     nickname: 'Frank',
     title: 'CPA, Founder',
@@ -51,12 +40,12 @@ export const employees: Record<Employee, EmployeeData> = {
     ],
   },
   [Employee.Gary]: {
-    headshot: '/headshot-employee-gary.jpg',
+    headshot: headshots[Employee.Gary],
     name: 'Gary A. Kissinger',
     nickname: 'Gary',
     title: 'CPA, Shareholder',
     email: 'gk@pkacpa.com',
-    bio: `Gary is a shareholder in Palermo/Kissinger and Associates, P.C. Gary joined the firm after graduating with a B.A. degree in Accounting from Washington & Jefferson College in 1988. He has over 30 years of experience working with local businesses providing tax, accounting, and consulting services. In addition, Gary is in charge of the firm’s quality control and each of the firms audit engagements developing a specialty in audits of non-profit organizations and local governments. Gary is also known as “Chip” by family and friends. He resides in Upper St Clair with his wife, Amy, and two sons, AJ and Matthew. Professionally, Gary is a member of the AICPA and PICPA. Gary is presently the Treasurer of the United Way of Washington as well as a member of the Finance Council of Holy Child Church in Bridgeville, PA`,
+    bio: `Gary is a shareholder in Palermo/Kissinger and Associates, P.C. Gary joined the firm after graduating with a B.A. degree in Accounting from Washington & Jefferson College in 1988. He has over 30 years of experience working with local businesses providing tax, accounting, and consulting services. In addition, Gary is in charge of the firm's quality control and each of the firms audit engagements developing a specialty in audits of non-profit organizations and local governments. Gary is also known as "Chip" by family and friends. He resides in Upper St Clair with his wife, Amy, and two sons, AJ and Matthew. Professionally, Gary is a member of the AICPA and PICPA. Gary is presently the Treasurer of the United Way of Washington as well as a member of the Finance Council of Holy Child Church in Bridgeville, PA`,
     skills: [
       Skills.ACCOUNTING,
       Skills.TAXES,
@@ -66,7 +55,7 @@ export const employees: Record<Employee, EmployeeData> = {
     ],
   },
   [Employee.FrankIII]: {
-    headshot: '/headshot-employee-frank-iii.jpg',
+    headshot: headshots[Employee.FrankIII],
     name: 'Frank J. Palermo III',
     nickname: 'Frank',
     title: 'CPA, Shareholder',
@@ -81,7 +70,7 @@ export const employees: Record<Employee, EmployeeData> = {
     ],
   },
   [Employee.John]: {
-    headshot: '/headshot-employee-john.jpg',
+    headshot: headshots[Employee.John],
     name: 'John Palermo',
     nickname: 'John',
     title: 'CPA, Shareholder',
@@ -95,16 +84,16 @@ export const employees: Record<Employee, EmployeeData> = {
     ],
   },
   [Employee.Lisa]: {
-    headshot: '/headshot-employee-lisa.jpg',
+    headshot: headshots[Employee.Lisa],
     name: 'Lisa Vipperman',
     nickname: 'Lisa',
     email: 'lv@pkacpa.com',
     title: 'CPA',
-    bio: `Lisa holds a B.A. in Accounting from King University, Tennessee (2002) and a Master’s Degree in Accounting and Information Systems from Virginia Tech (2003). She joined the firm in 2010, focusing primarily on audits of nonprofit organizations and governmental entities. Lisa also served as a contracted CFO for a local nonprofit organization for over ten years.`,
+    bio: `Lisa holds a B.A. in Accounting from King University, Tennessee (2002) and a Master's Degree in Accounting and Information Systems from Virginia Tech (2003). She joined the firm in 2010, focusing primarily on audits of nonprofit organizations and governmental entities. Lisa also served as a contracted CFO for a local nonprofit organization for over ten years.`,
     skills: [Skills.AUDITS, Skills.NON_PROFITS, Skills.TAXES],
   },
   [Employee.Denise]: {
-    headshot: '/headshot-employee-denise.jpg',
+    headshot: headshots[Employee.Denise],
     name: 'Denise Roberts',
     nickname: 'Denise',
     email: 'dr@pkacpa.com',
@@ -113,7 +102,7 @@ export const employees: Record<Employee, EmployeeData> = {
     skills: [Skills.PAYROLL, Skills.BOOKKEEPING],
   },
   [Employee.Lindsay]: {
-    headshot: '/headshot-employee-lindsay.jpg',
+    headshot: headshots[Employee.Lindsay],
     name: 'Lindsay Fritz',
     nickname: 'Lindsay',
     email: 'lf@pkacpa.com',
@@ -122,7 +111,7 @@ export const employees: Record<Employee, EmployeeData> = {
     skills: [Skills.PAYROLL],
   },
   [Employee.Matt]: {
-    headshot: '/headshot-employee-matt.png',
+    headshot: headshots[Employee.Matt],
     name: 'Matt Kissinger',
     nickname: 'Matt',
     email: 'mk@pkacpa.com',
