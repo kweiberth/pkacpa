@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import classNames from 'classnames';
-import logo from '@/app/images/logo.png';
+import logo from '@/public/logo.png';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Page, pageHrefs, pageTitles } from '@/utils/pages';
@@ -101,7 +101,7 @@ export default function Main({ children }: { children: React.ReactNode }) {
             <Image
               src={logo}
               alt="Palermo/Kissinger & Associates logo"
-              className="h-auto w-[200px] min-[480px]:w-[275px]"
+              className="h-auto w-[160px] min-[480px]:w-[180px]"
             />
           </Link>
           <nav className="hidden items-center space-x-8 menu:flex [&>a:hover]:text-pka-gold [&>a]:transition-colors [&>a]:duration-200">
