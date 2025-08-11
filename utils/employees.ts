@@ -145,11 +145,18 @@ export const employees: Record<Employee, EmployeeData> = {
     title: 'Staff accountant',
     skills: [Skills.BOOKKEEPING],
   },
-  [Employee.Kelsey]: {
-    name: 'Kelsey McConnell',
-    nickname: 'Kelsey',
-    email: 'km@pkacpa.com',
-    title: 'Administrative assistant',
+  [Employee.Sarah]: {
+    name: 'Sarah Moore',
+    nickname: 'Sarah',
+    email: 'sm@pkacpa.com',
+    title: 'Staff accountant',
+    skills: [Skills.BOOKKEEPING],
+  },
+  [Employee.Natalee]: {
+    name: 'Natalee Burns',
+    nickname: 'Natalee',
+    email: 'nb@pkacpa.com',
+    title: 'Staff accountant',
     skills: [Skills.BOOKKEEPING],
   },
 };

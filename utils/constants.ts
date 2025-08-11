@@ -10,5 +10,6 @@ export enum Employee {
   Jaime = 'Jaime',
   Emily = 'Emily',
   Katie = 'Katie',
-  Kelsey = 'Kelsey',
+  Sarah = 'Sarah',
+  Natalee = 'Natalee',
 }
