@@ -12,6 +12,7 @@ export enum Skills {
   NON_PROFITS = 'Non-profits',
   QUICKBOOKS = 'QuickBooks',
   BOOKKEEPING = 'Bookkeeping',
+  OFFICE_MANAGEMENT = 'Office management',
 }
 
 export interface EmployeeData {
@@ -158,5 +159,12 @@ export const employees: Record<Employee, EmployeeData> = {
     email: 'nb@pkacpa.com',
     title: 'Staff accountant',
     skills: [Skills.BOOKKEEPING],
+  },
+  [Employee.Tiffany]: {
+    name: 'Tiffany Corteal',
+    nickname: 'Tiffany',
+    email: 'tc@pkacpa.com',
+    title: 'Office manager',
+    skills: [Skills.OFFICE_MANAGEMENT],
   },
 };

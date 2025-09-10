@@ -85,6 +85,12 @@ const employees = [
     nickname: 'Natalee',
     email: 'nb@pkacpa.com',
   },
+  {
+    name: 'Tiffany Corteal',
+    title: 'Office manager',
+    nickname: 'Tiffany',
+    email: 'tc@pkacpa.com',
+  },
 ];
 
 for (const employee of employees) {
