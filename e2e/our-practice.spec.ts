@@ -51,7 +51,7 @@ const employees = [
   },
   {
     name: 'Matt Kissinger',
-    title: 'Staff accountant',
+    title: 'CPA',
     nickname: 'Matt',
     email: 'mk@pkacpa.com',
   },
