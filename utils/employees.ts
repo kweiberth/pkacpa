@@ -116,7 +116,7 @@ export const employees: Record<Employee, EmployeeData> = {
     name: 'Matt Kissinger',
     nickname: 'Matt',
     email: 'mk@pkacpa.com',
-    title: 'Staff accountant',
+    title: 'CPA',
     skills: [
       Skills.TAXES,
       Skills.VIRTUAL_CFO,
