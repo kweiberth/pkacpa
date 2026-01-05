@@ -93,6 +93,20 @@ export const employees: Record<Employee, EmployeeData> = {
     bio: `Lisa holds a B.A. in Accounting from King University, Tennessee (2002) and a Master's Degree in Accounting and Information Systems from Virginia Tech (2003). She joined the firm in 2010, focusing primarily on audits of nonprofit organizations and governmental entities. Lisa also served as a contracted CFO for a local nonprofit organization for over ten years.`,
     skills: [Skills.AUDITS, Skills.NON_PROFITS, Skills.TAXES],
   },
+  [Employee.Matt]: {
+    headshot: headshots[Employee.Matt],
+    name: 'Matt Kissinger',
+    nickname: 'Matt',
+    email: 'mk@pkacpa.com',
+    title: 'CPA',
+    skills: [
+      Skills.TAXES,
+      Skills.VIRTUAL_CFO,
+      Skills.BOOKKEEPING,
+      Skills.PAYROLL,
+      Skills.QUICKBOOKS,
+    ],
+  },
   [Employee.Denise]: {
     headshot: headshots[Employee.Denise],
     name: 'Denise Roberts',
@@ -110,20 +124,6 @@ export const employees: Record<Employee, EmployeeData> = {
     title: 'Payroll specialist',
     bio: `Lindsay graduated from California University of Pennsylvania in 2006 with a B.S. in Business Administration and joined the firm shortly after. She brings over 12 years of payroll expertise into her role as payroll specialist. Lindsay currently manages payroll for 21 clients and is knowledgeable in payroll tax regulations across most states. Outside of work, she enjoys spending time with her husband, Tim, and their four cats.`,
     skills: [Skills.PAYROLL],
-  },
-  [Employee.Matt]: {
-    headshot: headshots[Employee.Matt],
-    name: 'Matt Kissinger',
-    nickname: 'Matt',
-    email: 'mk@pkacpa.com',
-    title: 'CPA',
-    skills: [
-      Skills.TAXES,
-      Skills.VIRTUAL_CFO,
-      Skills.BOOKKEEPING,
-      Skills.PAYROLL,
-      Skills.QUICKBOOKS,
-    ],
   },
   [Employee.Jaime]: {
     name: 'Jaime DeCecco',
