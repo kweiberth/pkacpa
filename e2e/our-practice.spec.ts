@@ -80,12 +80,6 @@ const employees = [
     email: 'sm@pkacpa.com',
   },
   {
-    name: 'Natalee Burns',
-    title: 'Staff accountant',
-    nickname: 'Natalee',
-    email: 'nb@pkacpa.com',
-  },
-  {
     name: 'Tiffany Corteal',
     title: 'Office manager',
     nickname: 'Tiffany',
