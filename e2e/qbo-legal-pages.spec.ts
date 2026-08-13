@@ -31,9 +31,9 @@ for (const legalPage of pages) {
     await expect(
       page.getByRole('heading', { level: 2, name: legalPage.finalSection }),
     ).toBeVisible();
-    await expect(
-      page.locator('article').getByText('9 East Beau Street', { exact: true }),
-    ).toBeVisible();
+    await expect(page.locator('article address')).toContainText(
+      '9 East Beau Street',
+    );
     await expect(page.locator('#amplitude-script')).toHaveCount(0);
   });
 }
