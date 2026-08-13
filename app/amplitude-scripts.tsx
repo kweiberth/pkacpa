@@ -1,6 +1,7 @@
 'use client';
 
 import Script from 'next/script';
+import { usePathname } from 'next/navigation';
 import { AMPLITUDE_API_KEY } from '@/utils/analytics';
 
 declare global {
@@ -15,8 +16,14 @@ declare global {
   }
 }
 
-const AmplitudeScripts = () => (
-  <>
+const AmplitudeScripts = () => {
+  const pathname = usePathname();
+
+  if (pathname === '/qbo-app-terms' || pathname === '/qbo-app-privacy') {
+    return null;
+  }
+
+  return (
     <Script
       id="amplitude-script"
       src="https://cdn.amplitude.com/libs/analytics-browser-2.11.7-min.js.gz"
@@ -27,7 +34,7 @@ const AmplitudeScripts = () => (
         });
       }}
     />
-  </>
-);
+  );
+};
 
 export default AmplitudeScripts;
