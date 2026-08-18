@@ -16,7 +16,7 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run type
-      - run: npx playwright install --with-deps
-      - run: npx playwright test
+      - run: npm run e2e:install -- --with-deps
+      - run: npm run e2e
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}

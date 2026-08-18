@@ -4,8 +4,6 @@ import { track, EventName } from '@/utils/analytics';
 
 const SEND_EMAILS_FROM_LOCAL = false;
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const Email = ({
   name,
   email,
@@ -94,6 +92,8 @@ export async function POST(request: Request) {
     : `[${process.env.NEXT_PUBLIC_DEPLOY_ENV}] ${subject}`;
 
   try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
     await resend.emails.send({
       from: 'pkacpa.com <noreply@website.pkacpa.com>',
       to: isProduction ? 'info@pkacpa.com' : 'kurt.weiberth@gmail.com',
